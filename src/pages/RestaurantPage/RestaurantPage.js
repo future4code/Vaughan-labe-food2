@@ -14,7 +14,7 @@ export default function RestaurantPage() {
     return (
         <>
             <Header title={"Restaurante"} arrow={'inline'} />
-            <RestaurantCard restaurant={data.restaurant} display={'inline'} height={'260px'} />
+            <RestaurantCard restaurant={data.restaurant} display={'block'} height={'300px'} />
         </>
     )
 }

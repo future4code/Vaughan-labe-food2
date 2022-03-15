@@ -10,7 +10,7 @@ export const RestaurantCardStyled = styled(Card)`
     border-radius: 8px;
 
     h2 {
-        margin: 12px 16px 4px;
+        margin: 12px 16px 10px;
         font-size: 16px;
     }
 
