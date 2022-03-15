@@ -1,14 +1,14 @@
-import { Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { BASE_URL } from '../../constants/URL';
 import useRequestData from '../../hooks/useRequestData';
-import { HomeContainer, RestaurantCard } from './Styled';
+import { HomeContainer } from './Styled';
 import Header from '../../components/Header/Header';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import { goToSearch } from '../../routes/Coordinator';
 import { useNavigate } from 'react-router-dom';
 import Categories from './components/Categories';
 import Footer from '../../components/Footer/Footer';
+import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
 
 export default function HomePage() {
     const navigate = useNavigate()
@@ -24,14 +24,8 @@ export default function HomePage() {
         })
         .map(restaurant => {
             return (
-                <RestaurantCard key={restaurant.id}>
-                    <img src={restaurant.logoUrl} alt="Imagem da logo" />
-                    <Typography variant="h2" color="primary" >{restaurant.name}</Typography>
-                    <div>
-                        <Typography variant='p' color="secondary">{restaurant.deliveryTime} min</Typography>
-                        <Typography variant='p' color="secondary">Frete R${restaurant.shipping},00</Typography>
-                    </div>
-                </RestaurantCard>);
+                <RestaurantCard restaurant={restaurant} display={'none'} height={' 218px'} />
+            );
         });
 
     return (<HomeContainer>
