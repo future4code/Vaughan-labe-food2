@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { BASE_URL } from '../../constants/URL';
 import useRequestData from '../../hooks/useRequestData';
 import { HomeContainer, RestaurantCard } from './Styled';
@@ -11,10 +11,17 @@ import Categories from './components/Categories';
 
 export default function HomePage(){
     const navigate = useNavigate()
+    const [category, setCategory] = useState('')
 
     const [data, loading] = useRequestData([], `${BASE_URL}/restaurants`);
-    console.log(data.restaurants);
-    const restaurantsList = data.restaurants && data.restaurants.map(restaurant => {
+    const restaurantsList = data.restaurants && data.restaurants
+    .filter((restaurant) => {
+        if(category === '' ) {
+            return true
+        } 
+        return category === restaurant.category
+    })
+    .map(restaurant => {
         return (
             <RestaurantCard key={restaurant.id}>
                 <img src={restaurant.logoUrl} alt="Imagem da logo" />
@@ -29,7 +36,7 @@ export default function HomePage(){
     return(<HomeContainer>
         <Header title={'FutureEats'} arrow={'none'}/>
         <SearchInput onClick={() => goToSearch(navigate)} />
-        <Categories restaurantsList={data.restaurants} />
+        <Categories restaurantsList={data.restaurants} setCategory={setCategory} />
         {restaurantsList}
         </HomeContainer>
     );

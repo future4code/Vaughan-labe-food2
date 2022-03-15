@@ -11,7 +11,7 @@ export default function Categories(props) {
   };
 
   const categories = props.restaurantsList && props.restaurantsList.map((restaurant) => {
-    return <Tab label={restaurant.category} key={restaurant.id}/>
+    return <Tab label={restaurant.category} key={restaurant.id} onClick={() => props.setCategory(restaurant.category)}/>
   })
 
   return (
@@ -23,6 +23,7 @@ export default function Categories(props) {
         scrollButtons={false}
         aria-label="scrollable prevent tabs example"
       >
+        <Tab label={'TODOS'} onClick={() => props.setCategory('')}/>
         {categories}
       </Tabs>
     </Box>
