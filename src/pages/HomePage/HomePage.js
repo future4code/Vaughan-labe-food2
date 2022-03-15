@@ -5,7 +5,7 @@ import useRequestData from '../../hooks/useRequestData';
 import { HomeContainer, RestaurantCard } from './Styled';
 import Header from '../../components/header/Header';
 import SearchInput from '../../components/SearchInput/SearchInput';
-import { goToLogin } from '../../routes/Coordinator';
+import { goToSearch } from '../../routes/Coordinator';
 import { useNavigate } from 'react-router-dom';
 
 export default function HomePage(){
@@ -27,7 +27,7 @@ export default function HomePage(){
 
     return(<HomeContainer>
         <Header title={'FutureEats'} arrow={'none'}/>
-        <SearchInput onClick={() => goToLogin(navigate)} />
+        <SearchInput onClick={() => goToSearch(navigate)} />
         {restaurantsList}
         </HomeContainer>
     );
