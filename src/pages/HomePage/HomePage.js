@@ -2,10 +2,15 @@ import { Typography } from '@mui/material';
 import React from 'react';
 import { BASE_URL } from '../../constants/URL';
 import useRequestData from '../../hooks/useRequestData';
-import { RestaurantCard } from './Styled';
+import { HomeContainer, RestaurantCard } from './Styled';
 import Header from '../../components/header/Header';
+import SearchInput from '../../components/SearchInput/SearchInput';
+import { goToLogin } from '../../routes/Coordinator';
+import { useNavigate } from 'react-router-dom';
 
 export default function HomePage(){
+    const navigate = useNavigate()
+
     const [data, loading] = useRequestData([], `${BASE_URL}/restaurants`);
     console.log(data.restaurants);
     const restaurantsList = data.restaurants && data.restaurants.map(restaurant => {
@@ -20,9 +25,10 @@ export default function HomePage(){
             </RestaurantCard>);
     });
 
-    return(<div>
+    return(<HomeContainer>
         <Header title={'FutureEats'} arrow={'none'}/>
+        <SearchInput onClick={() => goToLogin(navigate)} />
         {restaurantsList}
-        </div>
+        </HomeContainer>
     );
 };
