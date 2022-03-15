@@ -1,13 +1,27 @@
 import { Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { BASE_URL } from '../../constants/URL';
 import useRequestData from '../../hooks/useRequestData';
-import { RestaurantCard } from './Styled';
+import { HomeContainer, RestaurantCard } from './Styled';
+import Header from '../../components/header/Header';
+import SearchInput from '../../components/SearchInput/SearchInput';
+import { goToSearch } from '../../routes/Coordinator';
+import { useNavigate } from 'react-router-dom';
+import Categories from './components/Categories';
 
 export default function HomePage(){
+    const navigate = useNavigate()
+    const [category, setCategory] = useState('')
+
     const [data, loading] = useRequestData([], `${BASE_URL}/restaurants`);
-    console.log(data.restaurants);
-    const restaurantsList = data.restaurants && data.restaurants.map(restaurant => {
+    const restaurantsList = data.restaurants && data.restaurants
+    .filter((restaurant) => {
+        if(category === '' ) {
+            return true
+        } 
+        return category === restaurant.category
+    })
+    .map(restaurant => {
         return (
             <RestaurantCard key={restaurant.id}>
                 <img src={restaurant.logoUrl} alt="Imagem da logo" />
@@ -19,9 +33,11 @@ export default function HomePage(){
             </RestaurantCard>);
     });
 
-    return(<div>
-        <h1>HomePage</h1>
+    return(<HomeContainer>
+        <Header title={'FutureEats'} arrow={'none'}/>
+        <SearchInput onClick={() => goToSearch(navigate)} />
+        <Categories restaurantsList={data.restaurants} setCategory={setCategory} />
         {restaurantsList}
-        </div>
+        </HomeContainer>
     );
 };

@@ -10,6 +10,7 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
+import SearchPage from "../pages/SearchPage/SearchPage";
 
 
 
@@ -26,6 +27,7 @@ export default function Router(){
               <Route path="/edituser" element={<EditUserPage />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/restaurant/:id" element={<RestaurantPage />} />
+              <Route path="/search" element={<SearchPage />} />
               <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
