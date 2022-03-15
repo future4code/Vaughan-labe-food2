@@ -10,3 +10,7 @@ export const HomeContainer = styled.div`
         width: 270px;
     }
 `
+
+export const ContainerRestaurantList = styled.div`
+  margin-bottom: 80px;
+`

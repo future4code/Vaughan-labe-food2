@@ -10,7 +10,9 @@ export const CardContainer = styled(Card)`
   margin: 2% auto;
 
   img{
-      width: 120px;
+      min-width: 120px;
+      max-width: 120px;
+      max-height: 112px;
       object-fit: cover;
   }
 
