@@ -3,6 +3,7 @@ import React from 'react';
 import { BASE_URL } from '../../constants/URL';
 import useRequestData from '../../hooks/useRequestData';
 import { RestaurantCard } from './Styled';
+import Header from '../../components/header/Header';
 
 export default function HomePage(){
     const [data, loading] = useRequestData([], `${BASE_URL}/restaurants`);
@@ -20,7 +21,7 @@ export default function HomePage(){
     });
 
     return(<div>
-        <h1>HomePage</h1>
+        <Header title={'FutureEats'} arrow={'none'}/>
         {restaurantsList}
         </div>
     );
