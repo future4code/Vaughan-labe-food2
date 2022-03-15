@@ -25,7 +25,7 @@ export default function RestaurantPage() {
     const categories = uniqueCategories && uniqueCategories.map((category) =>{
 
         return(
-            <>
+            <div key={crypto.randomUUID()}>
               <Typography variant={'h5'} sx={{width: '328px', m: 'auto', fontWeight: 'bold'}} color={'primary'}>{category}</Typography>
               {data.restaurant && data.restaurant.products.filter((item) =>{
                 return item.category === category          
@@ -39,7 +39,7 @@ export default function RestaurantPage() {
                     />
                   )
               })}
-            </>
+            </div>
           
         )
     })
