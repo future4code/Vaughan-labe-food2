@@ -7,6 +7,7 @@ import Header from '../../components/header/Header';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import { goToSearch } from '../../routes/Coordinator';
 import { useNavigate } from 'react-router-dom';
+import Categories from './components/Categories';
 
 export default function HomePage(){
     const navigate = useNavigate()
@@ -28,6 +29,7 @@ export default function HomePage(){
     return(<HomeContainer>
         <Header title={'FutureEats'} arrow={'none'}/>
         <SearchInput onClick={() => goToSearch(navigate)} />
+        <Categories restaurantsList={data.restaurants} />
         {restaurantsList}
         </HomeContainer>
     );
