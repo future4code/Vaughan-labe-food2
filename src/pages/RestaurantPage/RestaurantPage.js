@@ -12,9 +12,7 @@ export default function RestaurantPage() {
 
     const params = useParams()
 
-    const [data, loading] = useRequestData({}, `${BASE_URL}/restaurants/${params.id}`)
-
-    console.log(data.restaurant && data.restaurant.products)
+    const [data] = useRequestData({}, `${BASE_URL}/restaurants/${params.id}`)
 
     const categoriesList = data.restaurant && data.restaurant.products.map((item) =>{
         return item.category
@@ -25,7 +23,7 @@ export default function RestaurantPage() {
     const categories = uniqueCategories && uniqueCategories.map((category) =>{
 
         return(
-            <div key={crypto.randomUUID()}>
+            <div key={category}>
               <Typography variant={'h5'} sx={{width: '328px', m: 'auto', fontWeight: 'bold'}} color={'primary'}>{category}</Typography>
               {data.restaurant && data.restaurant.products.filter((item) =>{
                 return item.category === category          
