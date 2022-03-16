@@ -8,17 +8,16 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { GlobalContext } from '../../../global/GlobalStateContext';
 import { NumberInput } from '@mantine/core';
 
-export default function AlertDialog({ idProduct }) {
+export default function AlertDialog({ idProduct, check }) {
     const [open, setOpen] = useState(false);
     const { cart, setCart } = useContext(GlobalContext);
     const [value, setValue] = useState(1);
 
-    // console.log("Value", value);
-    // console.log("Cart", cart);
 
     const handleClickOpen = () => {
         setOpen(true);
     };
+
 
     const handleClose = () => {
         setOpen(false);
@@ -30,12 +29,14 @@ export default function AlertDialog({ idProduct }) {
             }
         ];
         setCart(newCart);
+
     };
+
 
     return (
         <div>
             <Button variant="outlined" onClick={handleClickOpen}>
-                Adicionar
+                {cart.length && check ? <>Remover</> : <>Adicionar</>}
             </Button>
             <Dialog
                 open={open}
