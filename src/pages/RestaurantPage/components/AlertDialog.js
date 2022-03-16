@@ -31,13 +31,27 @@ export default function AlertDialog({ idProduct, check }) {
         setCart(newCart);
 
     };
+    const removeFromCart = () => {
+        // const newCart = [...cart]
+        const deleteProduct = cart.filter(product => {
+            return product.id !== idProduct
+        }) 
+        setCart(deleteProduct)
+    
+    }
 
+    console.log(cart)
 
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickOpen}>
-                {cart.length && check ? <>Remover</> : <>Adicionar</>}
-            </Button>
+            {cart.length && check ?
+                <Button variant="outlined" onClick={removeFromCart}>
+                    Remover
+                </Button> :
+                <Button variant="outlined" onClick={handleClickOpen}>
+                    Adicionar
+                </Button>}
+
             <Dialog
                 open={open}
                 onClose={handleClose}
@@ -67,6 +81,6 @@ export default function AlertDialog({ idProduct, check }) {
                     </Button>
                 </DialogActions>
             </Dialog>
-        </div>
+        </div >
     );
 }
