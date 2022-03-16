@@ -27,14 +27,16 @@ export default function RestaurantPage() {
               <Typography variant={'h5'} sx={{width: '328px', m: 'auto', fontWeight: 'bold'}} color={'primary'}>{category}</Typography>
               {data.restaurant && data.restaurant.products.filter((item) =>{
                 return item.category === category          
-              }).map((item) => {
+              }).map((item, index) => {
                   return(
                     <CardProducts
-                    key={item.name} 
-                    img={item.photoUrl}
-                    name={item.name}
-                    price={item.price}
-                    description={item.description}
+                      key={item.name} 
+                      img={item.photoUrl}
+                      name={item.name}
+                      price={item.price}
+                      description={item.description}
+                      id={item.id}
+                      position={index}
                     />
                   )
               })}
