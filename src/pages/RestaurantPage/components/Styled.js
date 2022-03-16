@@ -1,5 +1,6 @@
 import { Card } from '@mui/material'
 import styled from 'styled-components'
+import { primaryColor } from '../../../constants/colors'
 
 export const CardContainer = styled(Card)`
   display: flex;
@@ -17,6 +18,19 @@ export const CardContainer = styled(Card)`
   }
 
   div{
-      margin: 0 5%;
+      margin: 1px 0 0 5%;
+  }
+
+  #info-title {
+    width: 180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #quantity-product {
+    border: thin solid ${primaryColor};
+    padding: 0 8px;
+    border-radius: 4px;
   }
 `

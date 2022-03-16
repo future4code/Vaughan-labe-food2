@@ -11,7 +11,7 @@ export default function RestaurantCard({ restaurant, display, height }) {
         <>
             {restaurant &&
                 <RestaurantCardStyled key={restaurant.id} onClick={() => goToRestaurant(navigate, restaurant.id)} sx={{ minHeight: `${height}` }}>
-                    <img src={restaurant.logoUrl} alt="Imagem da logo" />
+                    <img src={restaurant.logoUrl} alt={`Logomarca do ${restaurant.name}`} />
                     <Typography variant="h2" color="primary">{restaurant.name}</Typography>
                     <div>
                         <Typography color="secondary" sx={{ display: `${display}`, m: "0 16px 0 16px" }}>{restaurant.category}</Typography>

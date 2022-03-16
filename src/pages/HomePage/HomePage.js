@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import Categories from './components/Categories';
 import Footer from '../../components/Footer/Footer';
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
+import { CircularProgress } from '@mui/material';
 
 export default function HomePage() {
     const navigate = useNavigate()
@@ -33,7 +34,10 @@ export default function HomePage() {
         <SearchInput onClick={() => goToSearch(navigate)} focus={false}/>
         <Categories restaurantsList={data.restaurants} setCategory={setCategory} />
         <ContainerRestaurantList>
-            {restaurantsList}
+            {loading
+            ? <CircularProgress sx={{mt: "25vh"}}/>
+            : restaurantsList
+            }
         </ContainerRestaurantList>   
         <Footer initialValue={0} />
     </HomeContainer>
