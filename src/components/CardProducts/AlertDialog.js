@@ -5,14 +5,15 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { GlobalContext } from '../../../global/GlobalStateContext';
+import { GlobalContext } from '../../global/GlobalStateContext';
 import { NumberInput } from '@mantine/core';
 
-export default function AlertDialog({ idProduct, check }) {
+export default function AlertDialog({ idProduct, check, img, name, price, description, shipping, restaurantId }) {
     const [open, setOpen] = useState(false);
-    const { cart, setCart } = useContext(GlobalContext);
+    const { cart, setCart, productDetails, setProductDetails } = useContext(GlobalContext);
     const [value, setValue] = useState(1);
 
+    // console.log(JSON.parse(localStorage.getItem('cart')))
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -29,18 +30,32 @@ export default function AlertDialog({ idProduct, check }) {
             }
         ];
         setCart(newCart);
-
+        const newProductDetails = [
+            ...productDetails,
+            {
+                id: idProduct,
+                quantity: value,
+                name: name,
+                price: price,
+                description: description,
+                image: img,
+                shipping: shipping,
+                restaurantId: restaurantId
+            }
+        ]
+        setProductDetails(newProductDetails)
+        // localStorage.setItem('cart', JSON.stringify(productDetails))
     };
     const removeFromCart = () => {
-        // const newCart = [...cart]
         const deleteProduct = cart.filter(product => {
             return product.id !== idProduct
-        }) 
+        })
         setCart(deleteProduct)
-    
+        const deleteProductDetails = cart.filter(productDetails => {
+            return productDetails.id !== idProduct
+        })
+        setProductDetails(deleteProductDetails)
     }
-
-    console.log(cart)
 
     return (
         <div>

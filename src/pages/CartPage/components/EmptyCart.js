@@ -13,7 +13,7 @@ const PaymentInfoBox = styled.div`
   padding: 16px;
 `;
 
-export default function EmptyCart({ isEmpty }) {
+export default function EmptyCart() {
   return (
     <PaymentInfoBox>
       <Typography sx={{ alignSelf: "flex-end" }}>Frete: R$ 00,00</Typography>

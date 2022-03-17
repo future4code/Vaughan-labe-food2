@@ -5,10 +5,11 @@ import GlobalState from './global/GlobalState';
 import Router from './routes/Router';
 
 function App() {
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalState>
-       <Router />
+        <Router />
       </GlobalState>
     </ThemeProvider>
   );

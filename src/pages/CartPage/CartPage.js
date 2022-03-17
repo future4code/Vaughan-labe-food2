@@ -8,6 +8,8 @@ import { Typography } from "@mui/material";
 import { GlobalContext } from "../../global/GlobalStateContext";
 import PaymentInfo from "./components/EmptyCart";
 import EmptyCart from "./components/EmptyCart";
+import CartWithProducts from "./components/CartWithProducts";
+import CardProducts from "../../components/CardProducts/CardProducts";
 
 const AddressContainer = styled.div`
   height: 76px;
@@ -27,7 +29,20 @@ const CartContainer = styled.div`
 
 export default function CartPage() {
   const [data, loading] = useRequestData({}, `${BASE_URL}/profile/address`);
-  const { cart, setCart } = useContext(GlobalContext);
+  const { cart, setCart, productDetails } = useContext(GlobalContext);
+
+  const selectedProducts = productDetails.length && productDetails.map((item => {
+    return (
+      <CardProducts
+        key={item.id}
+        img={item.image}
+        name={item.name}
+        price={item.price}
+        description={item.description}
+        id={item.id}
+      />
+    )
+  }))
 
   return (
     <CartContainer>
@@ -41,11 +56,15 @@ export default function CartPage() {
         )}
       </AddressContainer>
       {cart.length ? (
-        <Typography sx={{ mt: "8px" }}>Carrinho CHEIAÇO</Typography>
+        <div>
+          {selectedProducts}
+          <CartWithProducts />
+        </div>
+
       ) : (
         <div>
-        <Typography sx={{textAlign:'center'}}>Carrinho vazio</Typography>
-        <EmptyCart/>
+          <Typography sx={{ textAlign: 'center' }}>Carrinho vazio</Typography>
+          <EmptyCart />
         </div>
       )}
       <Footer initialValue={1} />
