@@ -6,10 +6,10 @@ import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/URL";
 import { Typography } from "@mui/material";
 import { GlobalContext } from "../../global/GlobalStateContext";
-import PaymentInfo from "./components/EmptyCart";
 import EmptyCart from "./components/EmptyCart";
 import CartWithProducts from "./components/CartWithProducts";
 import CardProducts from "../../components/CardProducts/CardProducts";
+import RestaurantAddress from "./components/RestaurantAddress";
 
 const AddressContainer = styled.div`
   height: 76px;
@@ -57,6 +57,9 @@ export default function CartPage() {
       </AddressContainer>
       {cart.length ? (
         <div>
+          <RestaurantAddress 
+            productDetails={productDetails}
+          />
           {selectedProducts}
           <CartWithProducts />
         </div>
