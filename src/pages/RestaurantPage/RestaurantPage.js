@@ -39,6 +39,9 @@ export default function RestaurantPage() {
               position={index}
               shipping={data.restaurant.shipping}
               restaurantId={data.restaurant.id}
+              restaurantAddress={data.restaurant.address}
+              restaurantName={data.restaurant.name}
+              deliveryTime={data.restaurant.deliveryTime}
             />
           )
         })}

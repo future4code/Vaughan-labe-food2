@@ -43,6 +43,9 @@ export default function CardProducts(props) {
             check={check}
             shipping={props.shipping}
             restaurantId={props.restaurantId}
+            restaurantAddress={props.restaurantAddress}
+            restaurantName={props.restaurantName}
+            deliveryTime={props.deliveryTime}
           />
         </div>
       </div>

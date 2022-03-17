@@ -8,7 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { GlobalContext } from '../../global/GlobalStateContext';
 import { NumberInput } from '@mantine/core';
 
-export default function AlertDialog({ idProduct, check, img, name, price, description, shipping, restaurantId }) {
+export default function AlertDialog({ idProduct, check, img, name, price, description, shipping, restaurantId, restaurantName, restaurantAddress, deliveryTime}) {
     const [open, setOpen] = useState(false);
     const { cart, setCart, productDetails, setProductDetails, activeRestaurantID, setActiveRestaurantID} = useContext(GlobalContext);
     const [value, setValue] = useState(1);
@@ -62,7 +62,10 @@ export default function AlertDialog({ idProduct, check, img, name, price, descri
                         description: description,
                         image: img,
                         shipping: shipping,
-                        restaurantId: restaurantId
+                        restaurantId: restaurantId,
+                        restaurantAddress: restaurantAddress,
+                        restaurantName: restaurantName,
+                        deliveryTime: deliveryTime
                     }
                 ]
                 setProductDetails(newProductDetails)
