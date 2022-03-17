@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { Typography } from "@mui/material";
 import { CardContainer } from "./Styled";
 import AlertDialog from "./AlertDialog";
-import { GlobalContext } from "../../../global/GlobalStateContext";
-import checkForNumbers from "../../../function/includeNumber";
+import { GlobalContext } from "../../global/GlobalStateContext";
+import checkForNumbers from "../../function/includeNumber";
 
 export default function CardProducts(props) {
   const { cart, setCart } = useContext(GlobalContext);
@@ -17,7 +17,7 @@ export default function CardProducts(props) {
       }
     });
 
-  console.log("array:", productQuantity, "tem numero:", productQuantity && checkForNumbers(productQuantity))
+  const check = productQuantity && checkForNumbers(productQuantity)
 
   return (
     <CardContainer>
@@ -34,7 +34,16 @@ export default function CardProducts(props) {
         <Typography sx={{ fontSize: '12px' }} color='secondary'>{props.description}</Typography>
         <div>
           <Typography sx={{ fontSize: '16px' }} >R$ {props.price.toFixed(2).replace('.', ',')}</Typography>
-          <AlertDialog idProduct={props.id} />
+          <AlertDialog
+            idProduct={props.id}
+            img={props.img}
+            name={props.name}
+            price={props.price}
+            description={props.description}
+            check={check}
+            shipping={props.shipping}
+            restaurantId={props.restaurantId}
+          />
         </div>
       </div>
     </CardContainer>

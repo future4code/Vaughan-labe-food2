@@ -1,6 +1,6 @@
 import { Card } from '@mui/material'
 import styled from 'styled-components'
-import { primaryColor } from '../../../constants/colors'
+import { primaryColor } from '../../constants/colors'
 
 export const CardContainer = styled(Card)`
   display: flex;
