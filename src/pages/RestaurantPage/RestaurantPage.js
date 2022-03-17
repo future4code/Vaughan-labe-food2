@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom'
 import useRequestData from '../../hooks/useRequestData'
 import { BASE_URL } from '../../constants/URL'
-import Header from '../../components/Header/Header.js';
+import Header from '../../components/Header/Header';
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
 import CardProducts from '../../components/CardProducts/CardProducts';
 import { CircularProgress, Typography } from '@mui/material';
