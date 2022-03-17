@@ -20,17 +20,6 @@ export default function CartWithProducts() {
     const { cart, productDetails } = useContext(GlobalContext);
     console.log(productDetails)
 
-    const shippingTotal = () => {
-        let sum = 0
-        let arr = []
-        for (let i = 0; i < productDetails.length; i++) {
-            if (!arr.includes(Number(productDetails[i].restaurantId))) {
-                sum += productDetails[i].shipping
-                arr.push(Number(productDetails[i].restaurantId))
-            }
-        }
-        return sum
-    }
 
     const total = () => {
         let sum = 0
@@ -40,27 +29,16 @@ export default function CartWithProducts() {
         return sum
     }
 
-    // const selectedProducts = productDetails.length && productDetails.map((item => {
-    //     return (
-    //         <CardProducts
-    //             key={item.id}
-    //             img={item.image}
-    //             name={item.name}
-    //             price={item.price}
-    //             description={item.description}
-    //             id={item.id}
-    //         />
-    //     )
-    // }))
+    const shipping = productDetails[0].shipping;
 
     return (
         <PaymentInfoBox>
             {/* {selectedProducts} */}
-            <Typography sx={{ alignSelf: "flex-end" }}>Frete: R$ {shippingTotal().toFixed(2).replace(".", ",")}</Typography>
+            <Typography sx={{ alignSelf: "flex-end" }}>Frete: R$ {productDetails[0] && shipping.toFixed(2).replace(".", ",")}</Typography>
             <TotalContainer>
                 <Typography>Total:</Typography>
                 <Typography color="primary" sx={{ fontWeight: "bold" }}>
-                    R$ {(total() + shippingTotal()).toFixed(2).replace(".", ",")}
+                    R$ {(total() + shipping).toFixed(2).replace(".", ",")}
                 </Typography>
             </TotalContainer>
             <Typography sx={{ pb: "8px", borderBottom: "1px solid black" }}>
