@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -10,7 +10,7 @@ import { NumberInput } from '@mantine/core';
 
 export default function AlertDialog({ idProduct, check, img, name, price, description, shipping, restaurantId }) {
     const [open, setOpen] = useState(false);
-    const { cart, setCart, productDetails, setProductDetails } = useContext(GlobalContext);
+    const { cart, setCart, productDetails, setProductDetails, activeRestaurantID, setActiveRestaurantID} = useContext(GlobalContext);
     const [value, setValue] = useState(1);
 
     // console.log(JSON.parse(localStorage.getItem('cart')))
@@ -19,39 +19,71 @@ export default function AlertDialog({ idProduct, check, img, name, price, descri
         setOpen(true);
     };
 
+    
+    const handleCloseEmpty = () =>{
+        setOpen(false);
+    }
+
+
+    const validateRestaurantID = () => {
+
+        if(!activeRestaurantID){
+            return false
+        }
+
+        return restaurantId != activeRestaurantID
+    }
+
 
     const handleClose = () => {
-        setOpen(false);
-        const newCart = [
-            ...cart,
-            {
-                id: idProduct,
-                quantity: value
-            }
-        ];
-        setCart(newCart);
-        const newProductDetails = [
-            ...productDetails,
-            {
-                id: idProduct,
-                quantity: value,
-                name: name,
-                price: price,
-                description: description,
-                image: img,
-                shipping: shipping,
-                restaurantId: restaurantId
-            }
-        ]
-        setProductDetails(newProductDetails)
+
+             if(validateRestaurantID()){
+               alert('Finalize a Sua Compra Anterior Primeiro');
+               setOpen(false);
+               return false             
+             }
+              
+                const newCart = [
+                    ...cart,
+                    {
+                        id: idProduct,
+                        quantity: value
+                    }
+                ];
+
+                setCart(newCart);
+                const newProductDetails = [
+                    ...productDetails,
+                    {
+                        id: idProduct,
+                        quantity: value,
+                        name: name,
+                        price: price,
+                        description: description,
+                        image: img,
+                        shipping: shipping,
+                        restaurantId: restaurantId
+                    }
+                ]
+                setProductDetails(newProductDetails)
+
+                setActiveRestaurantID(restaurantId);
+
+                setOpen(false);
+                 
         // localStorage.setItem('cart', JSON.stringify(productDetails))
+
     };
+
+
     const removeFromCart = () => {
         const deleteProduct = cart.filter(product => {
             return product.id !== idProduct
         })
+
         setCart(deleteProduct)
-        const deleteProductDetails = cart.filter(productDetails => {
+
+        const deleteProductDetails = productDetails.filter(productDetails => {
             return productDetails.id !== idProduct
         })
         setProductDetails(deleteProductDetails)
@@ -69,7 +101,7 @@ export default function AlertDialog({ idProduct, check, img, name, price, descri
 
             <Dialog
                 open={open}
-                onClose={handleClose}
+                onClose={handleCloseEmpty}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >

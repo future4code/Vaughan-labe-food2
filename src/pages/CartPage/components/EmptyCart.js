@@ -1,11 +1,12 @@
 import { Typography } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { TotalContainer } from "./Styled";
 import styled from "styled-components";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
+import { GlobalContext } from "../../../global/GlobalStateContext";
 
 const PaymentInfoBox = styled.div`
   display: flex;
@@ -14,6 +15,11 @@ const PaymentInfoBox = styled.div`
 `;
 
 export default function EmptyCart() {
+
+  const {setActiveRestaurantID} = useContext(GlobalContext);
+
+  setActiveRestaurantID(0);
+
   return (
     <PaymentInfoBox>
       <Typography sx={{ alignSelf: "flex-end" }}>Frete: R$ 00,00</Typography>
