@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { Typography } from "@mui/material";
-import { BuySection, CardContainer, InfoProductBox } from "./Styled";
+import {  CardContainer, InfoProductBox } from "./Styled";
 import AlertDialog from "./AlertDialog";
 import { GlobalContext } from "../../global/GlobalStateContext";
 import checkForNumbers from "../../function/includeNumber";
 
 export default function CardProducts(props) {
-  const { cart, setCart } = useContext(GlobalContext);
+  const { cart } = useContext(GlobalContext);
 
   const productQuantity = cart.length && cart
     .map((order) => {

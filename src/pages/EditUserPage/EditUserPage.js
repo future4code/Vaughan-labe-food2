@@ -12,7 +12,7 @@ import useProtectedPage from "../../hooks/useProtectedPage";
 
 export default function EditUserPage() {
   useProtectedPage()
-  const { profileData, loading } = useContext(GlobalContext)
+  const { profileData } = useContext(GlobalContext)
   let initialName = profileData.user && profileData.user.name
   let initialEmail = profileData.user && profileData.user.email
   let initialCpf = profileData.user && profileData.user.cpf

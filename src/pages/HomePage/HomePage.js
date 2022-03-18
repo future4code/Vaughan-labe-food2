@@ -22,7 +22,7 @@ export default function HomePage() {
 
     const [data, loading] = useRequestData([], `${BASE_URL}/restaurants`);
 
-    const {timePopUp, setTimePopUp} = useContext(GlobalContext)
+    const {timePopUp} = useContext(GlobalContext)
 
     const restaurantsList = data.restaurants && data.restaurants
         .filter((restaurant) => {
