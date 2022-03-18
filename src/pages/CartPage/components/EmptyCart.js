@@ -16,17 +16,17 @@ const PaymentInfoBox = styled.div`
 
 export default function EmptyCart() {
 
-  const {setActiveRestaurantID} = useContext(GlobalContext);
+  const { setActiveRestaurantID } = useContext(GlobalContext);
 
   setActiveRestaurantID(0);
 
   return (
     <PaymentInfoBox>
-      <Typography sx={{ alignSelf: "flex-end" }}>Frete: R$ 00,00</Typography>
+      <Typography sx={{ alignSelf: "flex-end" }}>Frete: R$ 0,00</Typography>
       <TotalContainer>
         <Typography>Total:</Typography>
         <Typography color="primary" sx={{ fontWeight: "bold" }}>
-          R$ 00,00
+          R$ 0,00
         </Typography>
       </TotalContainer>
       <Typography sx={{ pb: "8px", borderBottom: "1px solid black" }}>
