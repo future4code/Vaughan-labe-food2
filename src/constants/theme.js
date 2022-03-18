@@ -14,6 +14,9 @@ const theme = createTheme({
     neutral: {
       main: neutralColor,
     },
+    white: {
+      main: "#ffffff"
+    },
     text: {
       primary: neutralColor
     }

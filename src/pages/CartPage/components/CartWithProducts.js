@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import { GlobalContext } from "../../../global/GlobalStateContext";
 import { useContext } from "react";
 import { placeOrder } from "../../../services/Order";
+import { useNavigate } from "react-router-dom";
 
 const PaymentInfoBox = styled.div`
   display: flex;
@@ -20,7 +21,7 @@ export default function CartWithProducts() {
   const { cart, productDetails, paymentMethod, setPaymentMethod} = useContext(GlobalContext);
   const [money, setMoney] = useState(false);
   const [credit, setCredit] = useState(false);
-
+  const navigate = useNavigate()
   const total = () => {
     let sum = 0;
     for (let product of productDetails) {
@@ -64,7 +65,7 @@ export default function CartWithProducts() {
         <FormControlLabel control={<Checkbox />} checked={credit} label="Cartão de Crédito" onClick={clickCheckedCredit}/>
       </FormGroup>
 
-      <Button sx={{ mt: "5px", mb:'100px' }} variant="contained" color="primary" onClick={() => placeOrder(productDetails[0].restaurantId, cart, paymentMethod)}>
+      <Button sx={{ mt: "5px", mb:'100px' }} variant="contained" color="primary" onClick={() => placeOrder(productDetails[0].restaurantId, cart, paymentMethod, navigate)}>
         Confirmar
       </Button>
     </PaymentInfoBox>
