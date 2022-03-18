@@ -8,7 +8,7 @@
 
 ## <h2 id="sobre">📓 Sobre<h2>
 
-🚀 Projeto desenvolvido conforme proposta do bootcamp ministrado pela Labenu para a criação de um App de serviços similar ao Uber Eats, desenvolvido em React.
+<p align="center">🚀 Projeto desenvolvido conforme proposta do bootcamp ministrado pela Labenu para a criação de um App de serviços similar ao Uber Eats, desenvolvido em React.</p>
 
 
 ## <h2 id="tecnologias">🛠️ Tecnologias</h2> 
