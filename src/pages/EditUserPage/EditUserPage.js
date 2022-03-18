@@ -7,6 +7,7 @@ import useForm from "../../hooks/useForm";
 import { useContext } from "react";
 import { GlobalContext } from "../../global/GlobalStateContext";
 import { updateProfile } from "../../services/User";
+import { useNavigate } from "react-router-dom";
 
 export default function EditUserPage() {
     const {profileData, loading} = useContext(GlobalContext)
@@ -20,6 +21,8 @@ export default function EditUserPage() {
         cpf: initialCpf
     })
 
+    const navigate = useNavigate()
+
     const onSubmitForm = (event) => {
         event.preventDefault()
         
@@ -27,9 +30,8 @@ export default function EditUserPage() {
           alert("CPF inválido!");
           return false;
         }
-        updateProfile(form)
+        updateProfile(form, navigate)
     }
-
 
   return (
     <div>
