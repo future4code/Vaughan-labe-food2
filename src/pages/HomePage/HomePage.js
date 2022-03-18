@@ -30,7 +30,7 @@ export default function HomePage() {
         });
 
     return (<HomeContainer>
-        <Header title={'FutureEats'} arrow={'inline'} />
+        <Header title={'FutureEats'} arrow={'none'} />
         <SearchInput onClick={() => goToSearch(navigate)} focus={false}/>
         <Categories restaurantsList={data.restaurants} setCategory={setCategory} />
         <ContainerRestaurantList>
