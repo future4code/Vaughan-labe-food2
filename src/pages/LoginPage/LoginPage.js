@@ -66,6 +66,7 @@ export default function LoginPage() {
                 </form>
 
                 <Button variant="text" color='neutral' onClick={() => goToSignUp(navigate)} sx={{ fontSize: '12px' }}>
+
                     Não possui cadastro? Clique aqui
                 </Button>
             </LoginContainer>
