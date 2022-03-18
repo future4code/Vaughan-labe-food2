@@ -37,7 +37,7 @@ export default function LoginPage() {
             {/* {initial ? <InitialPage /> : <h1>Login</h1>} */}
             <LoginContainer>
                 <img src={whitelogo} alt={'Logo futureEats'} />
-                <Typography color='neutral' sx={{ fontWeight: 'bold', mt: '28px', mb: '20px' }}>Entrar</Typography>
+                <Typography color='neutral' sx={{ fontWeight: 'bold', mt: '28px', mb: '20px', fontSize: '20px'}}>Entrar</Typography>
 
                 <form onSubmit={submitForm}>
                     <Input
@@ -47,10 +47,10 @@ export default function LoginPage() {
                         value={form.email}
                         onChange={handleInputChange}
                         type='email'
+                        size="lg"
                     />
                     <PasswordInput
                         required
-                        type='password'
                         placeholder="senha"
                         min={6}
                         name='password'
@@ -59,6 +59,7 @@ export default function LoginPage() {
                         visibilityToggleIcon={({ reveal, size }) =>
                             reveal ? <EyeOff size={size} /> : <EyeCheck size={size} />
                         }
+                        size="lg"
                     />
                     <Button sx={{ width: '100%', m: '16px 0' }} variant="contained" color="primary" type='submit'>
                         Entrar

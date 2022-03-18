@@ -16,6 +16,19 @@ export const login = (body, navigate) => {
         })
 }
 
+export const signUp = (body, navigate) => {
+
+    axios.post(`${BASE_URL}/signup`, body)
+        .then((res) => {
+            console.log(res.data)
+            goToCreateAddress(navigate)
+            localStorage.setItem('token', res.data.token)
+        }).catch((err) => {
+            alert(err.response.data.message)
+        })
+}
+
+
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA3SHFaT0o3NnVrME9HUkI3NHhGIiwibmFtZSI6ImVzZm9tZWFkbyIsImVtYWlsIjoiZXNmb21lYWRvQGZ1dHVyZTQuY29tIiwiY3BmIjoiMTEwLjExMC4xMTAtMTAiLCJoYXNBZGRyZXNzIjp0cnVlLCJhZGRyZXNzIjoiUiBxdWFscXVlciBjb2lzYSwgMDAwLCA3MSAtIHF1YWxxdWVyIGx1Z2FyIiwiaWF0IjoxNjQ3MjkwMTA3fQ.l5VVhvVblsIvqn0eTuC0lKs_lqi6q3s5KEGMYkfASFo"
 
 export const updateProfile = (body) => {
