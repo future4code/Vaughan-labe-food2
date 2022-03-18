@@ -60,6 +60,7 @@ export default function SignUpPage() {
                         name='name'
                         value={form.name}
                         onChange={handleInputChange}
+                        min={3}
                         size="lg"
                     />
                     <Input

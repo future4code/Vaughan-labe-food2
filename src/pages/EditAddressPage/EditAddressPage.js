@@ -67,7 +67,6 @@ export default function EditAddressPage() {
                         name="complement"
                         onChange={handleInputChange}
                         value={form.complement}
-                        required
                     />
                 </InputWrapper>
                 <InputWrapper description="Bairro">
