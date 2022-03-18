@@ -42,6 +42,7 @@ export default function CreateAddressPage() {
                         value={form.street}
                         onChange={handleInputChange}
                         size="lg"
+                        min={3}
                     />
                     <Input
                         required
@@ -50,9 +51,9 @@ export default function CreateAddressPage() {
                         value={form.number}
                         onChange={handleInputChange}
                         size="lg"
+                        type='number'
                     />
                     <Input
-                        required
                         placeholder="Complemento"
                         name='complement'
                         value={form.complement}

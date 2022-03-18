@@ -2,9 +2,10 @@ import axios from "axios";
 import { BASE_URL } from "../constants/URL";
 import { goToHome } from "../routes/Coordinator";
 
-const token = localStorage.getItem('token')
+
 
 export const addAddress = (body, navigate, screen) => {
+    const token = localStorage.getItem('token')
     const headers = { headers: { auth: token } }
     axios.put(`${BASE_URL}/address`, body, headers)
     .then((res) => {
