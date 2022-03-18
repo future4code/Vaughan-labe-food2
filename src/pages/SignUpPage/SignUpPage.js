@@ -10,10 +10,13 @@ import { EyeCheck, EyeOff } from 'tabler-icons-react';
 import { signUp } from '../../services/User'
 import { useNavigate } from "react-router-dom";
 import Header from '../../components/Header/Header';
+import useUnprotectedPage from '../../hooks/useUnprotectedPage';
 
 
 
 export default function SignUpPage() {
+    useUnprotectedPage()
+
     const navigate = useNavigate()
 
     const [verifyPassword, setVerifyPassword] = useState(undefined)
@@ -27,8 +30,16 @@ export default function SignUpPage() {
 
     const submitForm = (event) => {
         event.preventDefault()
-        if (verifyPassword === form.password)
-            signUp(form, navigate)
+        if (verifyPassword !== form.password) {
+            alert("Senhas diferentes.")
+            return false
+        }
+        if (form.cpf[3] === "-" || form.cpf[7] === "-" || form.cpf[11] === ".") {
+            alert("CPF inválido!");
+            return false;
+        }
+
+        signUp(form, navigate)
     }
 
     const verify = (event) => {
@@ -40,7 +51,7 @@ export default function SignUpPage() {
             <Header />
             <SignUpContainer>
                 <img src={whitelogo} alt={'Logo futureEats'} />
-                <Typography color='neutral' sx={{ fontWeight: 'bold', mt: '28px', mb: '20px', fontSize: '20px'}}>Cadastrar</Typography>
+                <Typography color='neutral' sx={{ fontWeight: 'bold', mt: '28px', mb: '20px', fontSize: '20px' }}>Cadastrar</Typography>
 
                 <form onSubmit={submitForm}>
                     <Input
@@ -66,10 +77,11 @@ export default function SignUpPage() {
                         name='cpf'
                         value={form.cpf}
                         onChange={handleInputChange}
+                        pattern={'^([0-9]){3}\.([0-9]){3}\.([0-9]){3}-([0-9]){2}$'}
                         size="lg"
                     />
                     <PasswordInput
-                        sx={{ marginBottom: '16px'}}
+                        sx={{ marginBottom: '16px' }}
                         required
                         placeholder="senha"
                         min={6}

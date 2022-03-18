@@ -5,11 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import { GlobalContext } from '../../global/GlobalStateContext';
 import useForm from '../../hooks/useForm';
+import useProtectedPage from '../../hooks/useProtectedPage';
 import { addAddress } from '../../services/Address';
 import { Form } from './Styled';
 
 
 export default function EditAddressPage() {
+    useProtectedPage()
     const { addressData, addressloading } = useContext(GlobalContext)
     let initialCity = addressData.address && addressData.address.city
     let initialComplement = addressData.address && addressData.address.complement
@@ -31,8 +33,8 @@ export default function EditAddressPage() {
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        console.log(form)
-        // addAddress(form, navigate)
+        addAddress(form, navigate, 'editAddress')
+
     }
 
     return (

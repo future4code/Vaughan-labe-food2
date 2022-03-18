@@ -7,8 +7,10 @@ import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
 import CardProducts from '../../components/CardProducts/CardProducts';
 import { CircularProgress, Typography } from '@mui/material';
 import { ProductsContainer, RestaurantContainer } from './Styled';
+import useProtectedPage from '../../hooks/useProtectedPage';
 
 export default function RestaurantPage() {
+  useProtectedPage()
 
   const params = useParams()
 

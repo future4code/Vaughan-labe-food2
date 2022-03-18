@@ -10,8 +10,11 @@ import Categories from './components/Categories';
 import Footer from '../../components/Footer/Footer';
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
 import { CircularProgress } from '@mui/material';
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 export default function HomePage() {
+    useProtectedPage()
+
     const navigate = useNavigate()
     const [category, setCategory] = useState('')
 

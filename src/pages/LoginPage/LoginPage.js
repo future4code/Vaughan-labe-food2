@@ -11,8 +11,11 @@ import { EyeCheck, EyeOff } from 'tabler-icons-react';
 import { login } from '../../services/User'
 import { useNavigate } from "react-router-dom";
 import { goToSignUp } from '../../routes/Coordinator';
+import useUnprotectedPage from '../../hooks/useUnprotectedPage';
 
 export default function LoginPage() {
+    useUnprotectedPage()
+
     const navigate = useNavigate()
 
     const [initial, setInitial] = useState(true);
@@ -34,7 +37,7 @@ export default function LoginPage() {
 
     return (
         <>
-            {/* {initial ? <InitialPage /> : <h1>Login</h1>} */}
+            {initial ? <InitialPage /> : 
             <LoginContainer>
                 <img src={whitelogo} alt={'Logo futureEats'} />
                 <Typography color='neutral' sx={{ fontWeight: 'bold', mt: '28px', mb: '20px', fontSize: '20px'}}>Entrar</Typography>
@@ -71,7 +74,7 @@ export default function LoginPage() {
                     Não possui cadastro? Clique aqui
                 </Button>
             </LoginContainer>
-
+        }
         </>
     )
 }
