@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
 import { BASE_URL } from '../../constants/URL';
 import useRequestData from '../../hooks/useRequestData';
 import { ContainerRestaurantList, HomeContainer } from './Styled';
@@ -11,6 +11,8 @@ import Footer from '../../components/Footer/Footer';
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
 import { CircularProgress } from '@mui/material';
 import useProtectedPage from "../../hooks/useProtectedPage";
+import PopUp from '../../components/PopUp/PopUp';
+import {GlobalContext} from '../../global/GlobalStateContext';
 
 export default function HomePage() {
     useProtectedPage()
@@ -19,6 +21,9 @@ export default function HomePage() {
     const [category, setCategory] = useState('')
 
     const [data, loading] = useRequestData([], `${BASE_URL}/restaurants`);
+
+    const {timePopUp} = useContext(GlobalContext)
+
     const restaurantsList = data.restaurants && data.restaurants
         .filter((restaurant) => {
             if (category === '') {
@@ -42,6 +47,7 @@ export default function HomePage() {
             : restaurantsList
             }
         </ContainerRestaurantList>   
+        {!loading && timePopUp ? <PopUp/> : null}
         <Footer initialValue={0} />
     </HomeContainer>
     );

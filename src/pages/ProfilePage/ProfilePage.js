@@ -10,14 +10,14 @@ import { ProfileBox } from "./Styled";
 import { AddressBox } from "./Styled";
 import OrderHistoryCard from "./components/OrderHistoryCard";
 import { goToEditAddress, goToEditUser } from "../../routes/Coordinator";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useProtectedPage from "../../hooks/useProtectedPage";
 
 export default function ProfilePage() {
   useProtectedPage()
   
-  const [data, loading] = useRequestData({}, `${BASE_URL}/profile`);
-  const [orderData, orderLoading] = useRequestData(
+  const [data] = useRequestData({}, `${BASE_URL}/profile`);
+  const [orderData] = useRequestData(
     {},
     `${BASE_URL}/orders/history`
   );

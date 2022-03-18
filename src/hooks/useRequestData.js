@@ -25,7 +25,7 @@ const useRequestData = (initialState, url) => {
 
     }, [url])
 
-    return [data, loading]
+    return [data, loading, token]
 }
 
 export default useRequestData
