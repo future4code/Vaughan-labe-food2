@@ -9,6 +9,8 @@ import { NameAndEdit } from "./Styled";
 import { ProfileBox } from "./Styled";
 import { AddressBox } from "./Styled";
 import OrderHistoryCard from "./components/OrderHistoryCard";
+import { goToEditAddress, goToEditUser } from "../../routes/Coordinator";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function ProfilePage() {
   const [data, loading] = useRequestData({}, `${BASE_URL}/profile`);
@@ -16,6 +18,7 @@ export default function ProfilePage() {
     {},
     `${BASE_URL}/orders/history`
   );
+  const navigate = useNavigate()
 
   const orderHistory =
     orderData.orders &&
@@ -27,7 +30,6 @@ export default function ProfilePage() {
       />;
     });
 
-  console.log(orderData);
   return (
     <div>
       <Header title={"Meu Perfil"} arrow={"none"} />
@@ -38,7 +40,7 @@ export default function ProfilePage() {
               <Typography sx={{ fontWeight: "00" }}>
                 {data.user.name}
               </Typography>
-              <CreateIcon />
+              <CreateIcon onClick={() => goToEditUser(navigate)} />
             </NameAndEdit>
             <Typography>{data.user.email}</Typography>
             <Typography>{data.user.cpf}</Typography>
@@ -48,7 +50,7 @@ export default function ProfilePage() {
               <Typography color={"secondary"}>Endereço cadastrado</Typography>
               <Typography>{data.user.address}</Typography>
             </div>
-            <CreateIcon />
+            <CreateIcon onClick={() => goToEditAddress(navigate)} />
           </AddressBox>
         </>
       )}
