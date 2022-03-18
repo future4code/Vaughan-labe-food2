@@ -6,7 +6,6 @@ import { LoginContainer } from './Styled'
 import { Typography } from '@mui/material';
 import useForm from '../../hooks/useForm';
 import { Input } from '@mantine/core';
-import { At } from 'tabler-icons-react';
 import { PasswordInput } from '@mantine/core';
 import { EyeCheck, EyeOff } from 'tabler-icons-react';
 import { login } from '../../services/User'
@@ -42,16 +41,18 @@ export default function LoginPage() {
 
                 <form onSubmit={submitForm}>
                     <Input
-                        icon={<At />}
-                        placeholder="E-mail"
+                        required
+                        placeholder="email@email.com"
                         name='email'
                         value={form.email}
                         onChange={handleInputChange}
+                        type='email'
                     />
                     <PasswordInput
-                        color='#5CB646'
-                        placeholder="Senha"
-                        defaultValue="secret"
+                        required
+                        type='password'
+                        placeholder="senha"
+                        min={6}
                         name='password'
                         value={form.password}
                         onChange={handleInputChange}
@@ -64,7 +65,8 @@ export default function LoginPage() {
                     </Button>
                 </form>
 
-                <Button variant="text" color='neutral' onClick={() => goToSignUp(navigate)}>
+                <Button variant="text" color='neutral' onClick={() => goToSignUp(navigate)} sx={{ fontSize: '12px' }}>
+
                     Não possui cadastro? Clique aqui
                 </Button>
             </LoginContainer>
