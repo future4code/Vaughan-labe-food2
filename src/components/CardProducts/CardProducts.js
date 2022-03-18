@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Typography } from "@mui/material";
-import { CardContainer } from "./Styled";
+import { BuySection, CardContainer, InfoProductBox } from "./Styled";
 import AlertDialog from "./AlertDialog";
 import { GlobalContext } from "../../global/GlobalStateContext";
 import checkForNumbers from "../../function/includeNumber";
@@ -22,18 +22,15 @@ export default function CardProducts(props) {
   return (
     <CardContainer>
       <img src={props.img} alt={props.name} />
-      <div>
-        <div id="info-title">
-          <Typography sx={{ fontSize: '16px', fontWeight: 'bold' }} color='primary'>{props.name}</Typography>
+      <InfoProductBox>
+          <Typography sx={{ fontSize: '16px', fontWeight: 'bold', gridArea: '1/1/2/3' }} color='primary'>{props.name}</Typography>
           {productQuantity && checkForNumbers(productQuantity) ?
             (<div id="quantity-product">
-              <Typography sx={{ fontSize: '16px', fontWeight: 'bold' }} color='primary'>{productQuantity === 0 ? null : productQuantity}</Typography>
+              <Typography sx={{ fontSize: '16px', fontWeight: 'bold', gridArea: '1/2/2/3', textAlign: 'center'}} color='primary'>{productQuantity === 0 ? null : productQuantity}</Typography>
             </div>) : null
           }
-        </div>
-        <Typography sx={{ fontSize: '12px' }} color='secondary'>{props.description}</Typography>
-        <div>
-          <Typography sx={{ fontSize: '16px' }} >R$ {props.price.toFixed(2).replace('.', ',')}</Typography>
+        <Typography sx={{ fontSize: '12px', gridArea: '2/1/3/4' }} color='secondary'>{props.description}</Typography>
+          <Typography sx={{ fontSize: '16px', gridArea: '3/1/4/2' }} >R$ {props.price.toFixed(2).replace('.', ',')}</Typography>
           <AlertDialog
             idProduct={props.id}
             img={props.img}
@@ -47,8 +44,7 @@ export default function CardProducts(props) {
             restaurantName={props.restaurantName}
             deliveryTime={props.deliveryTime}
           />
-        </div>
-      </div>
+      </InfoProductBox>
     </CardContainer>
   )
 }

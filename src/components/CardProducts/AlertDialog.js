@@ -7,6 +7,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { GlobalContext } from '../../global/GlobalStateContext';
 import { NumberInput } from '@mantine/core';
+import { DialogBox } from './Styled';
 
 export default function AlertDialog({ idProduct, check, img, name, price, description, shipping, restaurantId, restaurantName, restaurantAddress, deliveryTime}) {
     const [open, setOpen] = useState(false);
@@ -93,7 +94,7 @@ export default function AlertDialog({ idProduct, check, img, name, price, descri
     }
 
     return (
-        <div>
+        <DialogBox>
             {cart.length && check ?
                 <Button variant="outlined" onClick={removeFromCart}>
                     Remover
@@ -131,6 +132,6 @@ export default function AlertDialog({ idProduct, check, img, name, price, descri
                     </Button>
                 </DialogActions>
             </Dialog>
-        </div >
+        </DialogBox>
     );
 }
