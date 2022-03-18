@@ -4,7 +4,7 @@ import whitelogo from '../../assets/whitelogo.png'
 import { SignUpContainer } from './Styled'
 import { Typography } from '@mui/material';
 import useForm from '../../hooks/useForm';
-import { Input } from '@mantine/core';
+import { Input, InputWrapper } from '@mantine/core';
 import { PasswordInput } from '@mantine/core';
 import { EyeCheck, EyeOff } from 'tabler-icons-react';
 import { signUp } from '../../services/User'
@@ -54,37 +54,38 @@ export default function SignUpPage() {
                 <Typography color='neutral' sx={{ fontWeight: 'bold', mt: '28px', mb: '20px', fontSize: '20px' }}>Cadastrar</Typography>
 
                 <form onSubmit={submitForm}>
+                    <InputWrapper description="Nome" />
                     <Input
                         required
-                        placeholder="Nome"
+                        placeholder="Nome e sobrenome"
                         name='name'
                         value={form.name}
                         onChange={handleInputChange}
                         min={3}
-                        size="lg"
                     />
+                    <InputWrapper description="E-mail" />
                     <Input
                         required
-                        placeholder="Email"
+                        placeholder="email@email.com"
                         name='email'
                         value={form.email}
                         onChange={handleInputChange}
                         type='email'
-                        size="lg"
                     />
+                    <InputWrapper description="CPF" />
                     <Input
                         required
-                        placeholder="CPF"
+                        placeholder="000.000.000-00"
                         name='cpf'
                         value={form.cpf}
                         onChange={handleInputChange}
                         pattern={'^([0-9]){3}\.([0-9]){3}\.([0-9]){3}-([0-9]){2}$'}
-                        size="lg"
                     />
+                    <InputWrapper description="Senha" />
                     <PasswordInput
                         sx={{ marginBottom: '16px' }}
                         required
-                        placeholder="senha"
+                        placeholder="Mínimo 6 caracteres"
                         min={6}
                         name='password'
                         value={form.password}
@@ -92,11 +93,11 @@ export default function SignUpPage() {
                         visibilityToggleIcon={({ reveal, size }) =>
                             reveal ? <EyeOff size={size} /> : <EyeCheck size={size} />
                         }
-                        size="lg"
                     />
+                    <InputWrapper description="Confirmar" />
                     <PasswordInput
                         required
-                        placeholder="senha"
+                        placeholder="Confirme a senha anterior"
                         min={6}
                         name='password'
                         value={verifyPassword}
@@ -104,7 +105,6 @@ export default function SignUpPage() {
                         visibilityToggleIcon={({ reveal, size }) =>
                             reveal ? <EyeOff size={size} /> : <EyeCheck size={size} />
                         }
-                        size="lg"
                     />
                     <Button sx={{ width: '100%', m: '16px 0' }} variant="contained" color="primary" type='submit'>
                         Criar

@@ -5,15 +5,13 @@ export const CreateAddressContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 88vh;
-
 
     form {
         width: 328px;
     }
 
     input {
-        width: 100%;
+        height: 56px;
         margin-bottom: 16px;
     }
 `
