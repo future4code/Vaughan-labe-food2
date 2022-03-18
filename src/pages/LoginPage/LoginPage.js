@@ -6,12 +6,14 @@ import { LoginContainer } from './Styled'
 import { Typography } from '@mui/material';
 import useForm from '../../hooks/useForm';
 import { Input } from '@mantine/core';
-import { At } from 'tabler-icons-react';
 import { PasswordInput } from '@mantine/core';
 import { EyeCheck, EyeOff } from 'tabler-icons-react';
 import { login } from '../../services/User'
+import { useNavigate } from "react-router-dom";
+import { goToSignUp } from '../../routes/Coordinator';
 
 export default function LoginPage() {
+    const navigate = useNavigate()
 
     const [initial, setInitial] = useState(true);
     const [form, handleInputChange] = useForm({
@@ -27,7 +29,7 @@ export default function LoginPage() {
 
     const submitForm = (event) => {
         event.preventDefault()
-        login(form)
+        login(form, navigate)
     }
 
     return (
@@ -39,16 +41,18 @@ export default function LoginPage() {
 
                 <form onSubmit={submitForm}>
                     <Input
-                        icon={<At />}
-                        placeholder="E-mail"
+                        required
+                        placeholder="email@email.com"
                         name='email'
                         value={form.email}
                         onChange={handleInputChange}
+                        type='email'
                     />
                     <PasswordInput
-                        color='#5CB646'
-                        placeholder="Senha"
-                        defaultValue="secret"
+                        required
+                        type='password'
+                        placeholder="senha"
+                        min={6}
                         name='password'
                         value={form.password}
                         onChange={handleInputChange}
@@ -56,12 +60,13 @@ export default function LoginPage() {
                             reveal ? <EyeOff size={size} /> : <EyeCheck size={size} />
                         }
                     />
-                    <Button sx={{ mt: "5px" }} variant="contained" color="primary" type='submit'>
+                    <Button sx={{ width: '100%', m: '16px 0' }} variant="contained" color="primary" type='submit'>
                         Entrar
                     </Button>
                 </form>
 
-                <Button variant="text" color='neutral'>
+                <Button variant="text" color='neutral' onClick={() => goToSignUp(navigate)} sx={{ fontSize: '12px' }}>
+
                     Não possui cadastro? Clique aqui
                 </Button>
             </LoginContainer>

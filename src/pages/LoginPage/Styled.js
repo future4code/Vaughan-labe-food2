@@ -11,6 +11,14 @@ export const LoginContainer = styled.div`
         width: 126px;
         height: 65px;
         object-fit: contain;
-        /* margin-bottom: ; */
+    }
+
+    form {
+        width: 328px;
+    }
+
+    input {
+        width: 100%;
+        margin-bottom: 16px;
     }
 `
