@@ -5,7 +5,6 @@ export const SignUpContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 88vh;
 
     img {
         width: 126px;
@@ -15,10 +14,15 @@ export const SignUpContainer = styled.div`
 
     form {
         width: 328px;
+
+        div > div > div{
+            height: 56px;
+            margin-bottom: 16px;
+        }
     }
 
     input {
-        width: 100%;
+        height: 56px;
         margin-bottom: 16px;
     }
 `

@@ -42,7 +42,7 @@ export default function EditUserPage() {
       <Form onSubmit={onSubmitForm}>
         <InputWrapper description="Nome">
           <Input
-            placeholder="Nome"
+            placeholder="Nome e sobrenome"
             name="name"
             label='nome'
             onChange={handleInputChange}
@@ -53,7 +53,7 @@ export default function EditUserPage() {
         </InputWrapper>
         <InputWrapper description="E-mail">
           <Input
-            placeholder="E-mail"
+            placeholder="email@email.com"
             name="email"
             type={"email"}
             onChange={handleInputChange}
@@ -63,7 +63,7 @@ export default function EditUserPage() {
         </InputWrapper>
         <InputWrapper description="CPF">
           <Input
-            placeholder="CPF"
+            placeholder="000.000.000-00"
             name="cpf"
             type="text"
             onChange={handleInputChange}

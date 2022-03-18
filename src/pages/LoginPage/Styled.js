@@ -15,10 +15,15 @@ export const LoginContainer = styled.div`
 
     form {
         width: 328px;
+
+        div > div > div{
+            height: 56px;
+            margin-bottom: 16px;
+        }
     }
 
     input {
-        width: 100%;
+        height: 56px;
         margin-bottom: 16px;
     }
 `
