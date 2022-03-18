@@ -6,7 +6,7 @@ export const NameAndEdit = styled.div`
 `
 
 export const ProfileBox = styled.div`
-    padding: 0 16px;
+    padding: 0 16px 16px;
 `
 
 export const AddressBox = styled.div`
