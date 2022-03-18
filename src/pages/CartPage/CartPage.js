@@ -10,6 +10,7 @@ import EmptyCart from "./components/EmptyCart";
 import CartWithProducts from "./components/CartWithProducts";
 import CardProducts from "../../components/CardProducts/CardProducts";
 import RestaurantAddress from "./components/RestaurantAddress";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const AddressContainer = styled.div`
   height: 76px;
@@ -28,6 +29,8 @@ const CartContainer = styled.div`
 `;
 
 export default function CartPage() {
+  useProtectedPage()
+
   const [data, loading] = useRequestData({}, `${BASE_URL}/profile/address`);
   const { cart, setCart, productDetails } = useContext(GlobalContext);
 
