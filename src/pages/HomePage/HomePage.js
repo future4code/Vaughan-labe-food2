@@ -11,6 +11,7 @@ import Footer from '../../components/Footer/Footer';
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
 import { CircularProgress } from '@mui/material';
 import useProtectedPage from "../../hooks/useProtectedPage";
+import PopUp from '../../components/PopUp/PopUp';
 
 export default function HomePage() {
     useProtectedPage()
@@ -42,6 +43,7 @@ export default function HomePage() {
             : restaurantsList
             }
         </ContainerRestaurantList>   
+        <PopUp/>
         <Footer initialValue={0} />
     </HomeContainer>
     );

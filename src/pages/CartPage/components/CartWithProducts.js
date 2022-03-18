@@ -44,11 +44,6 @@ export default function CartWithProducts() {
     setPaymentMethod('creditcard')
   }
 
-//   const bodyPlaceOrder = {products : cart, paymentMethod: paymentMethod}
-
-//   console.log(cart);
-//   console.log(bodyPlaceOrder);
-  console.log(productDetails[0].restaurantId);
 
   return (
     <PaymentInfoBox>
@@ -69,7 +64,7 @@ export default function CartWithProducts() {
         <FormControlLabel control={<Checkbox />} checked={credit} label="Cartão de Crédito" onClick={clickCheckedCredit}/>
       </FormGroup>
 
-      <Button sx={{ mt: "5px" }} variant="contained" color="primary" onClick={() => placeOrder(productDetails[0].restaurantId, cart, paymentMethod)}>
+      <Button sx={{ mt: "5px", mb:'100px' }} variant="contained" color="primary" onClick={() => placeOrder(productDetails[0].restaurantId, cart, paymentMethod)}>
         Confirmar
       </Button>
     </PaymentInfoBox>
