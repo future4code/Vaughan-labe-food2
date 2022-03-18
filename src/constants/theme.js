@@ -8,15 +8,18 @@ const theme = createTheme({
       main: primaryColor,
 
     },
-    secondary:{
-        main: secondaryColor,
+    secondary: {
+      main: secondaryColor,
+    },
+    neutral: {
+      main: neutralColor,
     },
     text: {
-        primary: neutralColor
+      primary: neutralColor
     }
   },
   typography: {
-    
+
     fontFamily: [
       // '-apple-system',
       // 'BlinkMacSystemFont',
