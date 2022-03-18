@@ -18,19 +18,28 @@ export const CardContainer = styled(Card)`
   }
 
   div{
-      margin: 1px 0 0 5%;
-  }
-
-  #info-title {
-    width: 180px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+      margin: 0 0 0 5%;
   }
 
   #quantity-product {
     border: thin solid ${primaryColor};
     padding: 0 8px;
     border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+`
+
+export const InfoProductBox = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 33px;
+  grid-template-rows: 33px 1fr 1fr;
+`
+
+export const DialogBox = styled.div`
+  grid-area: 3/2/4/4;
+  justify-self: end;
+  align-self: end;
 `
