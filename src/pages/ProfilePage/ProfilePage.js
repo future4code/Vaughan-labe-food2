@@ -29,6 +29,7 @@ export default function ProfilePage() {
     orderData.orders &&
     orderData.orders.map((order) => {
       return <OrderHistoryCard
+        key={order.createdAt}
         name={order.restaurantName}
         price={order.totalPrice}
         date={order.createdAt}
