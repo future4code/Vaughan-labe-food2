@@ -11,6 +11,8 @@ export default function Header(props) {
 
   const logout = () => {
     localStorage.removeItem('token')
+    localStorage.removeItem('cart')
+    localStorage.removeItem('productDetails')
     goToLogin(navigate)
   }
 

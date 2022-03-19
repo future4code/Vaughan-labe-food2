@@ -16,8 +16,14 @@ export default function RestaurantPage() {
   const { cart, setCart, productDetails, setProductDetails } = useContext(GlobalContext);
 
   useEffect(() =>{
-    setCart(JSON.parse(localStorage.getItem("cart")));
-    setProductDetails(JSON.parse(localStorage.getItem("productDetails")));
+
+    if(localStorage.getItem("cart")){
+      
+      setCart(JSON.parse(localStorage.getItem("cart")));
+      setProductDetails(JSON.parse(localStorage.getItem("productDetails")));
+
+    }
+    
   },[])
 
   const params = useParams()
