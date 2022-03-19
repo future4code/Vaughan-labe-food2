@@ -12,8 +12,6 @@ import { useNavigate } from "react-router-dom";
 import Header from '../../components/Header/Header';
 import useUnprotectedPage from '../../hooks/useUnprotectedPage';
 
-
-
 export default function SignUpPage() {
     useUnprotectedPage()
 

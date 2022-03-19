@@ -1,7 +1,6 @@
 import { Typography } from "@mui/material";
 import React, { useState } from "react";
 import { TotalContainer } from "./Styled";
-import styled from "styled-components";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
@@ -10,15 +9,10 @@ import { GlobalContext } from "../../../global/GlobalStateContext";
 import { useContext } from "react";
 import { placeOrder } from "../../../services/Order";
 import { useNavigate } from "react-router-dom";
-
-const PaymentInfoBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-`;
+import { PaymentInfoBox } from './Styled'
 
 export default function CartWithProducts() {
-  const { cart, productDetails, paymentMethod, setPaymentMethod} = useContext(GlobalContext);
+  const { cart, productDetails, paymentMethod, setPaymentMethod } = useContext(GlobalContext);
   const [money, setMoney] = useState(false);
   const [credit, setCredit] = useState(false);
   const navigate = useNavigate()
@@ -61,11 +55,11 @@ export default function CartWithProducts() {
         Forma de pagamento
       </Typography>
       <FormGroup>
-        <FormControlLabel control={<Checkbox />} checked={money} label="Dinheiro" onClick={clickCheckedMoney}/>
-        <FormControlLabel control={<Checkbox />} checked={credit} label="Cartão de Crédito" onClick={clickCheckedCredit}/>
+        <FormControlLabel control={<Checkbox />} checked={money} label="Dinheiro" onClick={clickCheckedMoney} />
+        <FormControlLabel control={<Checkbox />} checked={credit} label="Cartão de Crédito" onClick={clickCheckedCredit} />
       </FormGroup>
 
-      <Button sx={{ mt: "5px", mb:'100px' }} variant="contained" color="primary" onClick={() => placeOrder(productDetails[0].restaurantId, cart, paymentMethod, navigate)}>
+      <Button sx={{ mt: "5px", mb: '100px' }} variant="contained" color="primary" onClick={() => placeOrder(productDetails[0].restaurantId, cart, paymentMethod, navigate)}>
         Confirmar
       </Button>
     </PaymentInfoBox>
