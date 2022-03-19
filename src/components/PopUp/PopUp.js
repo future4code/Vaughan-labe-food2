@@ -12,9 +12,9 @@ export default function PopUp() {
   const { setTimePopUp } = useContext(GlobalContext)
 
 
-  if (data.order === null) {
-    setTimePopUp(false)
-  }
+//   if (data.order === null) {
+//     setTimePopUp(false)
+//   }
    
   // if(data.order != null || data.order != undefined){
   //   setTimePopUp(true)
