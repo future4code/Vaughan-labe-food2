@@ -62,16 +62,16 @@ Página de Atualizar Perfil | Página de Atualizar Endereço
 
   
 ## <h2 id="devs">💼 Desenvolvedores</h2>
-- Ádria Tavares Leite Silva;
-- Gabriel Valle da Costa Ferreira;
-- Roberto Maia De Carvalho Junior;
-- Sofia Pitta Sesso;
-- Udimile Macedo de Oliveira.
+  - <a href="https://www.linkedin.com/in/adria-tavares/" targe="_blank" title="Conecte-se comigo no Linkedin">Ádria Tavares Leite Silva</a>
+  - <a href="https://www.linkedin.com/in/gabriel-valle-da-costa-ferreira-015592234/" targe="_blank" title="Conecte-se comigo no Linkedin">Gabriel Valle da Costa Ferreira</a>
+  - <a href="https://www.linkedin.com/in/roberto-maia-4ab013218/" targe="_blank" title="Conecte-se comigo no Linkedin">Roberto Maia De Carvalho Junior</a>
+  - <a href="https://www.linkedin.com/in/sofia-pitta-sesso-336862219/" targe="_blank" title="Conecte-se comigo no Linkedin">Sofia Pitta Sesso</a>
+  - <a href="https://www.linkedin.com/in/udimile/" targe="_blank" title="Conecte-se comigo no Linkedin">Udimile Macedo de Oliveira</a>
   
     ### Como o projeto foi feito:
-  O projeto foi baseado em metodologia ágeis e realizado por meio de pair coding, onde uma pessoa da equipe codava e os demais guiavam, mudando o responsável pelo código a cada funcionalidade. Para bugfixes, a resolução foi feita individualmente por cada membrp do grupo.
- 
-    #### Link do Kanbam : https://trello.com/b/QPUxW6cP/ubereats
+  O projeto foi baseado em metodologia ágeis e realizado por meio de pair coding, onde uma pessoa da equipe codava e os demais guiavam, mudando o responsável pelo código a cada funcionalidade. Para bugfixes, a resolução foi feita individualmente por cada membrp do grupo. <a href="https://trello.com/b/QPUxW6cP/ubereats" target="_blank">Acesse o Kanban do Projeto aqui</a>
+
+________________________________________
 
 <a href='#top'>Voltar para o topo</a>
 
