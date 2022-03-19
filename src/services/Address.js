@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/URL";
-import { goToHome } from "../routes/Coordinator";
+import { goToHome, goToProfile } from "../routes/Coordinator";
 
 
 
@@ -12,7 +12,8 @@ export const addAddress = (body, navigate, screen) => {
         localStorage.setItem('token', res.data.token)
         alert("Endereço salvo com sucesso!")
         if(screen === 'editAddress'){
-            navigate(-1)
+            goToProfile(navigate)
+            navigate(0)
         } else {
             goToHome(navigate)
         }
