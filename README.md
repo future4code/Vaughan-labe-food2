@@ -25,6 +25,16 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## <h2 id="funciona">✔️ O que funciona</h2>
 
+* O user é capaz de criar uma conta, cadastrando seus dados pessoais e seu endereço, sendo essas informações verificadas para atender o formato predefinido dos dados;
+* Após finalizar cadastro ou login, o user é redirecionado para a HomePage, onde encontra-se a lista de restaurantes disponíveis;
+* O user é capaz de buscar um restaurante por meio do nome do restaurante e por categoria de comidas servidas;
+* É possível clicar no card de um restaurante para visualizar o seu cardápio. Nessa página, o user pode visualizar as informações do restaurante, tais como endereço, frete e taxa de entrega, além de vizualizar os pratos do restaurante, organizados por categorias;
+* Na página de Restaurante, o user é capaz de adicionar pratos no carrinho e selecionar a quantidade de cada prato, bem como deletá-los do carrinho;
+* Na página de carrinho, é possível visualizar a lista de itens que adicionou ao carrinho. Caso não tenha adicionado nenhum item, isso será indicado. Além disso, o user tem acesso ao endereço de entrega, preço total da compra, calculado de acordo com a quantidade de cada item e do frete do restaurante, e pode selecionar a forma de pagamento e até deletar itens do carrinho;
+* O user é capaz de realizar um pedido  e, ao fazê-lo, um banner de "Pedido em Andamento" com os dados do pedido é exibido na HomePage. Esse banner fica ativo de acordo com o tempo de entrega;
+* Na página de perfil, o user vizualiza seus dados pessoais, endereço e histórico de pedidos finalizados. Nessa página, o user pode fazer logout da sua conta, bem como acessar as páginas de editar informações do user e de seu endereço, sendo elas atualizadas.
+
+
 ## <h2 id="nao-funciona">📋 Backlog</h2>
 * Responsividade para desktop 
 * Armazenar produtos do carrinho no Local Storage do usuário
