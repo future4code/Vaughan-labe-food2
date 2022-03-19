@@ -39,7 +39,7 @@ export default function EditAddressPage() {
 
     return (
         <div>
-            <Header title={'Endereço'} arrow={'inline'} />
+            <Header title={'Endereço'} arrow={'inline'} logout={'none'} />
 
             <Form onSubmit={onSubmitForm}>
                 <InputWrapper description="Logradouro">

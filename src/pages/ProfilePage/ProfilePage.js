@@ -18,6 +18,7 @@ export default function ProfilePage() {
   
   const [data] = useRequestData({}, `${BASE_URL}/profile`);
   const [orderData] = useRequestData(
+
     {},
     `${BASE_URL}/orders/history`
   );
@@ -26,16 +27,16 @@ export default function ProfilePage() {
   const orderHistory =
     orderData.orders &&
     orderData.orders.map((order) => {
-      return <OrderHistoryCard 
-      name={order.restaurantName} 
-      price={order.totalPrice}
-      date={order.createdAt}    
+      return <OrderHistoryCard
+        name={order.restaurantName}
+        price={order.totalPrice}
+        date={order.createdAt}
       />;
     });
 
   return (
     <div>
-      <Header title={"Meu Perfil"} arrow={"none"} />
+      <Header title={"Meu Perfil"} arrow={"none"} logout={'inline'} />
       {data.user && (
         <>
           <ProfileBox>
@@ -62,7 +63,7 @@ export default function ProfilePage() {
           <Typography sx={{ textAlign: "center", m: "16px 0" }}>
             Histórico de pedidos
           </Typography>
-          <div>{orderData.orders.length ? orderHistory : <Typography sx={{mt: '30px', textAlign: 'center'}}>Vazio</Typography>}</div>
+          <div>{orderData.orders.length ? orderHistory : <Typography sx={{ mt: '30px', textAlign: 'center' }}>Vazio</Typography>}</div>
         </div>
       )}
 

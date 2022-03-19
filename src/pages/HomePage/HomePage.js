@@ -38,16 +38,17 @@ export default function HomePage() {
         });
 
     return (<HomeContainer>
-        <Header title={'FutureEats'} arrow={'none'} />
-        <SearchInput onClick={() => goToSearch(navigate)} focus={false}/>
+        <Header title={'FutureEats'} arrow={'none'} logout={'none'} />
+        <SearchInput onClick={() => goToSearch(navigate)} focus={false} />
         <Categories restaurantsList={data.restaurants} setCategory={setCategory} />
         <ContainerRestaurantList>
             {loading
-            ? <CircularProgress sx={{mt: "25vh"}}/>
-            : restaurantsList
+                ? <CircularProgress sx={{ mt: "25vh" }} />
+                : restaurantsList
             }
         </ContainerRestaurantList>   
         {!loading && timePopUp ? <PopUp/> : null}
+
         <Footer initialValue={0} />
     </HomeContainer>
     );

@@ -32,7 +32,7 @@ export default function SearchPage() {
 
     return (
         <HomeContainer>
-            <Header title={'Busca'} arrow={'inline'} />
+            <Header title={'Busca'} arrow={'inline'} logout={'none'} />
             <SearchInput
                 onClick={null}
                 focus={true}

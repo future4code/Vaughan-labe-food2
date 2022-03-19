@@ -37,7 +37,7 @@ export default function EditUserPage() {
 
   return (
     <div>
-      <Header title={"Editar"} arrow={"inline"} />
+      <Header title={"Editar"} arrow={"inline"} logout={'none'} />
 
       <Form onSubmit={onSubmitForm}>
         <InputWrapper description="Nome">
