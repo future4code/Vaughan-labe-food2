@@ -69,6 +69,9 @@ export default function AlertDialog({ idProduct, check, img, name, price, descri
         ]
         setProductDetails(newProductDetails)
 
+        localStorage.setItem("cart", JSON.stringify(newCart));
+        localStorage.setItem("productDetails", JSON.stringify(newProductDetails));
+
         setActiveRestaurantID(restaurantId);
 
         setOpen(false);
@@ -87,6 +90,9 @@ export default function AlertDialog({ idProduct, check, img, name, price, descri
             return productDetails.id !== idProduct
         })
         setProductDetails(deleteProductDetails)
+
+        localStorage.setItem("cart", JSON.stringify(deleteProduct));
+        localStorage.setItem("productDetails", JSON.stringify(deleteProductDetails));
     }
 
     return (

@@ -6,7 +6,7 @@ import { BASE_URL } from "../../constants/URL";
 import { Typography } from "@mui/material";
 import CreateIcon from "@mui/icons-material/Create";
 import { Loading, NameAndEdit } from "./Styled";
-import { ProfileBox } from "./Styled";
+import { ProfileBox, OrderHistory} from "./Styled";
 import { AddressBox } from "./Styled";
 import OrderHistoryCard from "./components/OrderHistoryCard";
 import { goToEditAddress, goToEditUser } from "../../routes/Coordinator";
@@ -19,7 +19,6 @@ export default function ProfilePage() {
 
   const [data] = useRequestData({}, `${BASE_URL}/profile`);
   const [orderData] = useRequestData(
-
     {},
     `${BASE_URL}/orders/history`
   );
@@ -62,7 +61,7 @@ export default function ProfilePage() {
             <Typography sx={{ textAlign: "center", m: "16px 0" }}>
               Histórico de pedidos
             </Typography>
-            <div>{orderData.orders.length ? orderHistory : <Typography sx={{ mt: '30px', textAlign: 'center' }}>Vazio</Typography>}</div>
+            <OrderHistory>{orderData.orders.length ? orderHistory : <Typography sx={{ mt: '30px', textAlign: 'center' }}>Vazio</Typography>}</OrderHistory>
           </div>
         </>
         : <Loading><CircularProgress /></Loading>
