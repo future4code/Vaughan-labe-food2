@@ -19,7 +19,6 @@ export default function ProfilePage() {
 
   const [data] = useRequestData({}, `${BASE_URL}/profile`);
   const [orderData] = useRequestData(
-
     {},
     `${BASE_URL}/orders/history`
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import useRequestData from '../../hooks/useRequestData'
 import { BASE_URL } from '../../constants/URL'
@@ -8,9 +8,17 @@ import CardProducts from '../../components/CardProducts/CardProducts';
 import { CircularProgress, Typography } from '@mui/material';
 import { ProductsContainer, RestaurantContainer } from './Styled';
 import useProtectedPage from '../../hooks/useProtectedPage';
+import { GlobalContext } from '../../global/GlobalStateContext';
 
 export default function RestaurantPage() {
   useProtectedPage()
+
+  const { cart, setCart, productDetails, setProductDetails } = useContext(GlobalContext);
+
+  useEffect(() =>{
+    setCart(JSON.parse(localStorage.getItem("cart")));
+    setProductDetails(JSON.parse(localStorage.getItem("productDetails")));
+  },[])
 
   const params = useParams()
 

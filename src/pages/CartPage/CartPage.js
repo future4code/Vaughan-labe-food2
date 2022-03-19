@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import useRequestData from "../../hooks/useRequestData";
@@ -16,7 +16,12 @@ export default function CartPage() {
   useProtectedPage()
 
   const [data, loading] = useRequestData({}, `${BASE_URL}/profile/address`);
-  const { cart, setCart, productDetails } = useContext(GlobalContext);
+  const { cart, setCart, productDetails, setProductDetails} = useContext(GlobalContext);
+
+  useEffect(()=>{
+    setCart(JSON.parse(localStorage.getItem("cart")));
+    setProductDetails(JSON.parse(localStorage.getItem("productDetails")));
+  },[])
 
   const selectedProducts = productDetails.length && productDetails.map((item => {
     return (
