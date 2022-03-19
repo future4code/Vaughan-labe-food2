@@ -23,7 +23,7 @@ export default function CardProducts(props) {
     <CardContainer>
       <img src={props.img} alt={props.name} />
       <InfoProductBox>
-          <Typography sx={{ fontSize: '16px', fontWeight: 'bold', gridArea: '1/1/2/3' }} color='primary'>{props.name}</Typography>
+          <Typography sx={{ fontSize: '16px', fontWeight: 'bold', gridArea: '1/1/2/3', lineHeight: "0.9", mt: "4px" }} color='primary'>{props.name}</Typography>
           {productQuantity && checkForNumbers(productQuantity) ?
             (<div id="quantity-product">
               <Typography sx={{ fontSize: '16px', fontWeight: 'bold', gridArea: '1/2/2/3', textAlign: 'center'}} color='primary'>{productQuantity === 0 ? null : productQuantity}</Typography>
