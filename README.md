@@ -3,7 +3,7 @@
 ### Link do Surge: <a href="http://innocent-ink.surge.sh/" target="_blank" title="Veja o nosso projeto">FutureEatsA</a>
 
 <div align="center">
-<a href="sobre">Sobre</a> | <a href="#tecnologias">Tecnologias</a> | <a href="#funciona">O que funciona</a> | <a href="#nao-funciona">Backlog</a> | <a href='#img-mobile'>Imagens Mobile</a> | <a href="#devs">Desenvolvedores</a>
+<a href="#sobre">Sobre</a> | <a href="#tecnologias">Tecnologias</a> | <a href="#funciona">O que funciona</a> | <a href="#nao-funciona">Backlog</a> | <a href='#img-mobile'>Imagens Mobile</a> | <a href="#devs">Desenvolvedores</a>
 </div>
 
 ## <h2 id="sobre">📓 Sobre<h2>
