@@ -5,17 +5,18 @@ import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/URL";
 import { Typography } from "@mui/material";
 import CreateIcon from "@mui/icons-material/Create";
-import { NameAndEdit } from "./Styled";
+import { Loading, NameAndEdit } from "./Styled";
 import { ProfileBox } from "./Styled";
 import { AddressBox } from "./Styled";
 import OrderHistoryCard from "./components/OrderHistoryCard";
 import { goToEditAddress, goToEditUser } from "../../routes/Coordinator";
 import { useNavigate } from "react-router-dom";
 import useProtectedPage from "../../hooks/useProtectedPage";
+import { CircularProgress } from '@mui/material';
 
 export default function ProfilePage() {
   useProtectedPage()
-  
+
   const [data] = useRequestData({}, `${BASE_URL}/profile`);
   const [orderData] = useRequestData(
 
@@ -28,6 +29,7 @@ export default function ProfilePage() {
     orderData.orders &&
     orderData.orders.map((order) => {
       return <OrderHistoryCard
+        key={order.createdAt}
         name={order.restaurantName}
         price={order.totalPrice}
         date={order.createdAt}
@@ -37,8 +39,8 @@ export default function ProfilePage() {
   return (
     <div>
       <Header title={"Meu Perfil"} arrow={"none"} logout={'inline'} />
-      {data.user && (
-        <>
+      {data.user && orderData.orders
+        ? <>
           <ProfileBox>
             <NameAndEdit>
               <Typography sx={{ fontWeight: "00" }}>
@@ -56,16 +58,15 @@ export default function ProfilePage() {
             </div>
             <CreateIcon onClick={() => goToEditAddress(navigate)} />
           </AddressBox>
+          <div>
+            <Typography sx={{ textAlign: "center", m: "16px 0" }}>
+              Histórico de pedidos
+            </Typography>
+            <div>{orderData.orders.length ? orderHistory : <Typography sx={{ mt: '30px', textAlign: 'center' }}>Vazio</Typography>}</div>
+          </div>
         </>
-      )}
-      {orderData.orders && (
-        <div>
-          <Typography sx={{ textAlign: "center", m: "16px 0" }}>
-            Histórico de pedidos
-          </Typography>
-          <div>{orderData.orders.length ? orderHistory : <Typography sx={{ mt: '30px', textAlign: 'center' }}>Vazio</Typography>}</div>
-        </div>
-      )}
+        : <Loading><CircularProgress /></Loading>
+      }
 
       <Footer initialValue={2} />
     </div>
