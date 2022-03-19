@@ -13,12 +13,11 @@ export const addAddress = (body, navigate, screen, getAddressData) => {
         localStorage.setItem('token', res.data.token)
         alert("Endereço salvo com sucesso!")
         getAddressData(`${BASE_URL}/profile/address`)
-        if(screen === 'editAddress'){
-            goToProfile(navigate)
-            navigate(0)
-        } else {
-            goToHome(navigate)
-        }
+            if (screen === 'editAddress') {
+                navigate(-1)
+            } else {
+                goToHome(navigate)
+            }
 
         }).catch((err) => {
             alert(err.response.data.message)
