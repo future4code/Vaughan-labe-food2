@@ -30,9 +30,8 @@ export default function CreateAddressPage() {
 
     return (
         <div>
-            <Header logout={'none'} />
+            <Header logout={'none'} arrow={'none'} title={'Meu Endereço'} />
             <CreateAddressContainer>
-                <Typography color='neutral' sx={{ fontWeight: 'bold', mt: '18px', mb: '30px', fontSize: '20px' }}>Meu Endereço</Typography>
                 <form onSubmit={submitForm}>
                     <InputWrapper description="Logradouro">
                         <Input
