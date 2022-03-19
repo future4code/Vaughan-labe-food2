@@ -78,8 +78,8 @@ Página de Atualizar Perfil | Página de Atualizar Endereço
   - <a href="https://www.linkedin.com/in/sofia-pitta-sesso-336862219/" targe="_blank" title="Conecte-se comigo no Linkedin">Sofia Pitta Sesso</a>
   - <a href="https://www.linkedin.com/in/udimile/" targe="_blank" title="Conecte-se comigo no Linkedin">Udimile Macedo de Oliveira</a>
   
-    ### Como o projeto foi feito:
-  O projeto foi baseado em metodologia ágeis e realizado por meio de pair coding, onde uma pessoa da equipe codava e os demais guiavam, mudando o responsável pelo código a cada funcionalidade. Para bugfixes, a resolução foi feita individualmente por cada membrp do grupo. <a href="https://trello.com/b/QPUxW6cP/ubereats" target="_blank">Acesse o Kanban do Projeto aqui</a>
+    ### Como o projeto foi executado:
+  O projeto foi baseado em metodologia ágeis e desenvolvido por meio de pair coding, onde uma pessoa da equipe codava e os demais guiavam, mudando o responsável pelo código a cada funcionalidade. Para bugfixes, a resolução foi feita individualmente por cada membro do grupo. <a href="https://trello.com/b/QPUxW6cP/ubereats" target="_blank">Acesse o Kanban do Projeto aqui</a>
 
 ________________________________________
 
