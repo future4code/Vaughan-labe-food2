@@ -12,7 +12,7 @@ import { Form } from './Styled';
 
 export default function EditAddressPage() {
     useProtectedPage()
-    const { addressData, addressloading } = useContext(GlobalContext)
+    const { addressData, getAddressData } = useContext(GlobalContext)
     let initialCity = addressData.address && addressData.address.city
     let initialComplement = addressData.address && addressData.address.complement
     let initialNeighbourhood = addressData.address && addressData.address.neighbourhood
@@ -33,7 +33,7 @@ export default function EditAddressPage() {
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        addAddress(form, navigate, 'editAddress')
+        addAddress(form, navigate, 'editAddress', getAddressData)
 
     }
 

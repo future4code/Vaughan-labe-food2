@@ -8,8 +8,8 @@ export default function GlobalState(props) {
   const [productDetails, setProductDetails] = useState([])
   const [activeRestaurantID, setActiveRestaurantID] = useState(0)
   const [paymentMethod, setPaymentMethod] = useState("")
-  const [profileData, loading] = useRequestData({}, `${BASE_URL}/profile`)
-  const [addressData, addressloading] = useRequestData({}, `${BASE_URL}/profile/address`)
+  const [profileData, loading, getProfileData] = useRequestData({}, `${BASE_URL}/profile`)
+  const [addressData, addressloading, getAddressData] = useRequestData({}, `${BASE_URL}/profile/address`)
   const [timePopUp, setTimePopUp] = useState(false)
 
   const data = {
@@ -22,8 +22,10 @@ export default function GlobalState(props) {
     paymentMethod,
     setPaymentMethod,
     profileData,
+    getProfileData,
     loading,
-    addressData, 
+    addressData,
+    getAddressData,
     addressloading,
     timePopUp,
     setTimePopUp
