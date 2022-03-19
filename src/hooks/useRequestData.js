@@ -5,10 +5,9 @@ const useRequestData = (initialState, url) => {
 
     const [data, setData] = useState(initialState)
     const [loading, setLoading] = useState(false)
-    const token = localStorage.getItem('token')
 
     useEffect(() => {
-
+        const token = localStorage.getItem('token')
 
         setLoading(true)
         const headers = { headers: { auth: token } }
@@ -24,7 +23,7 @@ const useRequestData = (initialState, url) => {
 
     }, [url])
 
-    return [data, loading, token]
+    return [data, loading]
 }
 
 export default useRequestData
