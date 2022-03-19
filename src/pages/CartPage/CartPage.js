@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import styled from "styled-components";
 import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/URL";
 import { Typography } from "@mui/material";
@@ -11,22 +10,7 @@ import CartWithProducts from "./components/CartWithProducts";
 import CardProducts from "../../components/CardProducts/CardProducts";
 import RestaurantAddress from "./components/RestaurantAddress";
 import useProtectedPage from "../../hooks/useProtectedPage";
-
-const AddressContainer = styled.div`
-  height: 76px;
-  width: 100vw;
-  margin: -15px 0 8px;
-  background-color: #eee;
-  padding: 16px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-`;
-
-const CartContainer = styled.div`
-  min-height: 100vh;
-  width: 100vw;
-`;
+import { CartContainer, AddressContainer } from "./Styled";
 
 export default function CartPage() {
   useProtectedPage()
