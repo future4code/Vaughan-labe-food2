@@ -75,7 +75,7 @@ Página de Atualizar Perfil | Página de Atualizar Endereço
   - <a href="https://www.linkedin.com/in/adria-tavares/" targe="_blank" title="Conecte-se comigo no Linkedin">Ádria Tavares Leite Silva</a>
   - <a href="https://www.linkedin.com/in/gabriel-valle-da-costa-ferreira-015592234/" targe="_blank" title="Conecte-se comigo no Linkedin">Gabriel Valle da Costa Ferreira</a>
   - <a href="https://www.linkedin.com/in/roberto-maia-4ab013218/" targe="_blank" title="Conecte-se comigo no Linkedin">Roberto Maia De Carvalho Junior</a>
-  - <a href="https://www.linkedin.com/in/sofia-pitta-sesso-336862219/" targe="_blank" title="Conecte-se comigo no Linkedin">Sofia Pitta Sesso</a>
+  - <a href="https://www.linkedin.com/in/sofia-pitta-sesso/" targe="_blank" title="Conecte-se comigo no Linkedin">Sofia Pitta Sesso</a>
   - <a href="https://www.linkedin.com/in/udimile/" targe="_blank" title="Conecte-se comigo no Linkedin">Udimile Macedo de Oliveira</a>
   
     ### Como o projeto foi executado:
