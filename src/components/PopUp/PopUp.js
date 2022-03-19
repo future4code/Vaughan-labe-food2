@@ -15,8 +15,10 @@ export default function PopUp() {
   if (data.order === null) {
     setTimePopUp(false)
   }
-
-  console.log(data.order)
+   
+  // if(data.order != null || data.order != undefined){
+  //   setTimePopUp(true)
+  // } 
 
   return (
     <PopUpBox>

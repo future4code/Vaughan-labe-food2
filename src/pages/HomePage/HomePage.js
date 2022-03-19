@@ -19,6 +19,12 @@ export default function HomePage() {
 
     const navigate = useNavigate()
     const [category, setCategory] = useState('')
+    const [data2] = useRequestData({}, `${BASE_URL}/active-order`)
+    const { setTimePopUp } = useContext(GlobalContext)
+
+    if(data2.order != null || data2.order != undefined){
+        setTimePopUp(true)
+      } 
 
     const [data, loading] = useRequestData([], `${BASE_URL}/restaurants`);
 
