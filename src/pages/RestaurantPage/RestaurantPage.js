@@ -55,7 +55,7 @@ export default function RestaurantPage() {
 
   return (
     <RestaurantContainer>
-      <Header title={"Restaurante"} arrow={'inline'} />
+      <Header title={"Restaurante"} arrow={'inline'} logout={'none'} />
       {loading
         ? <CircularProgress sx={{ m: "40vh auto" }} />
         : <RestaurantCard restaurant={data.restaurant} display={'block'} height={'300px'} />

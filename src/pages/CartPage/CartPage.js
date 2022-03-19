@@ -49,7 +49,7 @@ export default function CartPage() {
 
   return (
     <CartContainer>
-      <Header title={"Meu Carrinho"} arrow={"none"} />
+      <Header title={"Meu Carrinho"} arrow={"none"} logout={'none'} />
       <AddressContainer>
         <Typography sx={{ ml: "16px" }}>Endereço de entrega</Typography>
         {data.address && (
@@ -60,7 +60,7 @@ export default function CartPage() {
       </AddressContainer>
       {cart.length ? (
         <div>
-          <RestaurantAddress 
+          <RestaurantAddress
             productDetails={productDetails}
           />
           {selectedProducts}

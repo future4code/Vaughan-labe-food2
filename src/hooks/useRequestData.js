@@ -6,9 +6,9 @@ const useRequestData = (initialState, url) => {
     const [data, setData] = useState(initialState)
     const [loading, setLoading] = useState(false)
 
-    const token = localStorage.getItem('token')
-    useEffect(() => {
 
+    useEffect(() => {
+        const token = localStorage.getItem('token')
 
         setLoading(true)
         const headers = { headers: { auth: token } }

@@ -48,7 +48,7 @@ export default function SignUpPage() {
 
     return (
         <>
-            <Header />
+            <Header logout={'none'} />
             <SignUpContainer>
                 <img src={whitelogo} alt={'Logo futureEats'} />
                 <Typography color='neutral' sx={{ fontWeight: 'bold', mt: '28px', mb: '20px', fontSize: '20px' }}>Cadastrar</Typography>
