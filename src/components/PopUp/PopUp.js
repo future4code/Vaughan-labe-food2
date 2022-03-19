@@ -9,14 +9,14 @@ import {GlobalContext} from '../../global/GlobalStateContext'
 export default function PopUp() {
 
     const [data] = useRequestData({}, `${BASE_URL}/active-order`)
-    const {setTimePopUp} = useContext(GlobalContext)
+    const { setTimePopUp } = useContext(GlobalContext)
     
+   
+  // if(data.order != null || data.order != undefined){
+  //   setTimePopUp(true)
+  // } 
 
-  if(data.order === null ){
-    setTimePopUp(false)
-  } 
-
-  console.log(data.order)
+  // console.log(data.order)
 
     return (
         <PopUpBox>

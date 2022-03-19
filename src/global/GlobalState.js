@@ -10,7 +10,7 @@ export default function GlobalState(props) {
   const [paymentMethod, setPaymentMethod] = useState("")
   const [profileData, loading] = useRequestData({}, `${BASE_URL}/profile`)
   const [addressData, addressloading] = useRequestData({}, `${BASE_URL}/profile/address`)
-  const [timePopUp, setTimePopUp] = useState(true)
+  const [timePopUp, setTimePopUp] = useState(false)
 
   const data = {
     cart,
