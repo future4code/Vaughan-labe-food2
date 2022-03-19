@@ -9,26 +9,24 @@ import { GlobalContext } from '../../global/GlobalStateContext';
 import { NumberInput } from '@mantine/core';
 import { DialogBox } from './Styled';
 
-export default function AlertDialog({ idProduct, check, img, name, price, description, shipping, restaurantId, restaurantName, restaurantAddress, deliveryTime}) {
+export default function AlertDialog({ idProduct, check, img, name, price, description, shipping, restaurantId, restaurantName, restaurantAddress, deliveryTime }) {
     const [open, setOpen] = useState(false);
-    const { cart, setCart, productDetails, setProductDetails, activeRestaurantID, setActiveRestaurantID} = useContext(GlobalContext);
+    const { cart, setCart, productDetails, setProductDetails, activeRestaurantID, setActiveRestaurantID } = useContext(GlobalContext);
     const [value, setValue] = useState(1);
-
-    // console.log(JSON.parse(localStorage.getItem('cart')))
 
     const handleClickOpen = () => {
         setOpen(true);
     };
 
-    
-    const handleCloseEmpty = () =>{
+
+    const handleCloseEmpty = () => {
         setOpen(false);
     }
 
 
     const validateRestaurantID = () => {
 
-        if(!activeRestaurantID){
+        if (!activeRestaurantID) {
             return false
         }
 
@@ -38,44 +36,42 @@ export default function AlertDialog({ idProduct, check, img, name, price, descri
 
     const handleClose = () => {
 
-             if(validateRestaurantID()){
-               alert('Finalize a Sua Compra Anterior Primeiro');
-               setOpen(false);
-               return false             
-             }
-              
-                const newCart = [
-                    ...cart,
-                    {
-                        id: idProduct,
-                        quantity: value
-                    }
-                ];
+        if (validateRestaurantID()) {
+            alert('Finalize a Sua Compra Anterior Primeiro');
+            setOpen(false);
+            return false
+        }
 
-                setCart(newCart);
-                const newProductDetails = [
-                    ...productDetails,
-                    {
-                        id: idProduct,
-                        quantity: value,
-                        name: name,
-                        price: price,
-                        description: description,
-                        image: img,
-                        shipping: shipping,
-                        restaurantId: restaurantId,
-                        restaurantAddress: restaurantAddress,
-                        restaurantName: restaurantName,
-                        deliveryTime: deliveryTime
-                    }
-                ]
-                setProductDetails(newProductDetails)
+        const newCart = [
+            ...cart,
+            {
+                id: idProduct,
+                quantity: value
+            }
+        ];
 
-                setActiveRestaurantID(restaurantId);
+        setCart(newCart);
+        const newProductDetails = [
+            ...productDetails,
+            {
+                id: idProduct,
+                quantity: value,
+                name: name,
+                price: price,
+                description: description,
+                image: img,
+                shipping: shipping,
+                restaurantId: restaurantId,
+                restaurantAddress: restaurantAddress,
+                restaurantName: restaurantName,
+                deliveryTime: deliveryTime
+            }
+        ]
+        setProductDetails(newProductDetails)
 
-                setOpen(false);
-                 
-        // localStorage.setItem('cart', JSON.stringify(productDetails))
+        setActiveRestaurantID(restaurantId);
+
+        setOpen(false);
 
     };
 

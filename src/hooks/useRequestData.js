@@ -6,11 +6,10 @@ const useRequestData = (initialState, url) => {
     const [data, setData] = useState(initialState)
     const [loading, setLoading] = useState(false)
 
-    useEffect(() => {
+    const getData = (url) => {
         const token = localStorage.getItem('token')
-
-        setLoading(true)
         const headers = { headers: { auth: token } }
+        setLoading(true)
 
         axios.get(url, headers)
             .then((res) => {
@@ -20,10 +19,13 @@ const useRequestData = (initialState, url) => {
             .catch((err) => {
                 setLoading(false)
             })
+    }
 
+    useEffect(() => {
+        getData(url)
     }, [url])
 
-    return [data, loading]
+    return [data, loading, getData]
 }
 
 export default useRequestData

@@ -12,7 +12,7 @@ import useProtectedPage from "../../hooks/useProtectedPage";
 
 export default function EditUserPage() {
   useProtectedPage()
-  const { profileData } = useContext(GlobalContext)
+  const { profileData, getProfileData } = useContext(GlobalContext)
   let initialName = profileData.user && profileData.user.name
   let initialEmail = profileData.user && profileData.user.email
   let initialCpf = profileData.user && profileData.user.cpf
@@ -32,7 +32,7 @@ export default function EditUserPage() {
       alert("CPF inválido!");
       return false;
     }
-    updateProfile(form, navigate)
+    updateProfile(form, navigate, getProfileData)
   }
 
   return (

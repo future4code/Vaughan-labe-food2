@@ -23,18 +23,17 @@ export const signUp = (body, navigate) => {
         })
 }
 
+export const updateProfile = (body, navigate, getProfileData) => {
 
-
-
-export const updateProfile = (body, navigate) => {
     const token = localStorage.getItem('token')
     const headers = { headers: { auth: token } }
     axios.put(`${BASE_URL}/profile`, body, headers)
         .then((res) => {
             alert("Perfil atualizado com sucesso!")
+            getProfileData(`${BASE_URL}/profile`)
             goToProfile(navigate)
             navigate(0)
         }).catch((err) => {
             alert(err.response.data.message)
-        })        
+        })
 }
