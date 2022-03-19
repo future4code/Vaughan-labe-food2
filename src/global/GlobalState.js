@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { GlobalContext } from "./GlobalStateContext";
 import useRequestData from "../hooks/useRequestData";
 import { BASE_URL } from "../constants/URL";
@@ -10,6 +10,7 @@ export default function GlobalState(props) {
   const [paymentMethod, setPaymentMethod] = useState("")
   const [profileData, loading] = useRequestData({}, `${BASE_URL}/profile`)
   const [addressData, addressloading] = useRequestData({}, `${BASE_URL}/profile/address`)
+  const [timePopUp, setTimePopUp] = useState(true)
 
   const data = {
     cart,
@@ -24,6 +25,8 @@ export default function GlobalState(props) {
     loading,
     addressData, 
     addressloading,
+    timePopUp,
+    setTimePopUp
   };
 
   return (

@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
 import useForm from '../../hooks/useForm';
-import { Input } from '@mantine/core';
+import { Input, InputWrapper } from '@mantine/core';
 import { useNavigate } from "react-router-dom";
 import { CreateAddressContainer } from './Styled';
 import Header from '../../components/Header/Header';
 import { addAddress } from '../../services/Address';
 import useProtectedPage from '../../hooks/useProtectedPage';
-
 
 export default function CreateAddressPage() {
     useProtectedPage()
@@ -33,57 +32,62 @@ export default function CreateAddressPage() {
         <div>
             <Header logout={'none'} />
             <CreateAddressContainer>
-                <Typography color='neutral' sx={{ fontWeight: 'bold', mt: '18px', mb: '40px', fontSize: '20px' }}>Meu Endereço</Typography>
+                <Typography color='neutral' sx={{ fontWeight: 'bold', mt: '18px', mb: '30px', fontSize: '20px' }}>Meu Endereço</Typography>
                 <form onSubmit={submitForm}>
-                    <Input
-                        required
-                        placeholder="Logradouro"
-                        name='street'
-                        value={form.street}
-                        onChange={handleInputChange}
-                        size="lg"
-                        min={3}
-                    />
-                    <Input
-                        required
-                        placeholder="Número"
-                        name='number'
-                        value={form.number}
-                        onChange={handleInputChange}
-                        size="lg"
-                        type='number'
-                    />
-                    <Input
-                        placeholder="Complemento"
-                        name='complement'
-                        value={form.complement}
-                        onChange={handleInputChange}
-                        size="lg"
-                    />
-                    <Input
-                        required
-                        placeholder="Bairro"
-                        name='neighbourhood'
-                        value={form.neighbourhood}
-                        onChange={handleInputChange}
-                        size="lg"
-                    />
-                    <Input
-                        required
-                        placeholder="Cidade"
-                        name='city'
-                        value={form.city}
-                        onChange={handleInputChange}
-                        size="lg"
-                    />
-                    <Input
-                        required
-                        placeholder="Estado"
-                        name='state'
-                        value={form.state}
-                        onChange={handleInputChange}
-                        size="lg"
-                    />
+                    <InputWrapper description="Logradouro">
+                        <Input
+                            placeholder="Rua / Av."
+                            name="street"
+                            onChange={handleInputChange}
+                            value={form.street}
+                            required
+                        />
+                    </InputWrapper>
+                    <InputWrapper description="Número">
+                        <Input
+                            placeholder="Número"
+                            name="number"
+                            type="number"
+                            onChange={handleInputChange}
+                            value={form.number}
+                            required
+                        />
+                    </InputWrapper>
+                    <InputWrapper description="Complemento">
+                        <Input
+                            placeholder="Apto. / Bloco"
+                            name="complement"
+                            onChange={handleInputChange}
+                            value={form.complement}
+                        />
+                    </InputWrapper>
+                    <InputWrapper description="Bairro">
+                        <Input
+                            placeholder="Bairro"
+                            name="neighbourhood"
+                            onChange={handleInputChange}
+                            value={form.neighbourhood}
+                            required
+                        />
+                    </InputWrapper>
+                    <InputWrapper description="Cidade">
+                        <Input
+                            placeholder="Cidade"
+                            name="city"
+                            onChange={handleInputChange}
+                            value={form.city}
+                            required
+                        />
+                    </InputWrapper>
+                    <InputWrapper description="Estado">
+                        <Input
+                            placeholder="Estado"
+                            name="state"
+                            onChange={handleInputChange}
+                            value={form.state}
+                            required
+                        />
+                    </InputWrapper>
                     <Button sx={{ width: '100%', m: '16px 0' }} variant="contained" color="primary" type='submit'>
                         Salvar
                     </Button>

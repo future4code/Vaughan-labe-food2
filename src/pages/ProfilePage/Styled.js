@@ -15,5 +15,5 @@ export const AddressBox = styled.div`
     align-items: center;    
     height: 76px;
     background-color: #eee;
-    padding: 0 16px;
+    padding: 16px;
 `

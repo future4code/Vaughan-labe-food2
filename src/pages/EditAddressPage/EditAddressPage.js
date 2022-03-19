@@ -44,7 +44,7 @@ export default function EditAddressPage() {
             <Form onSubmit={onSubmitForm}>
                 <InputWrapper description="Logradouro">
                     <Input
-                        placeholder="Logradouro"
+                        placeholder="Rua / Av."
                         name="street"
                         onChange={handleInputChange}
                         value={form.street}
@@ -63,7 +63,7 @@ export default function EditAddressPage() {
                 </InputWrapper>
                 <InputWrapper description="Complemento">
                     <Input
-                        placeholder="Complemento"
+                        placeholder="Apto. / Bloco"
                         name="complement"
                         onChange={handleInputChange}
                         value={form.complement}

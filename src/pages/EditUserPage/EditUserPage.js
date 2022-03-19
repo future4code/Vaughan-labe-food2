@@ -12,7 +12,7 @@ import useProtectedPage from "../../hooks/useProtectedPage";
 
 export default function EditUserPage() {
   useProtectedPage()
-  const { profileData, loading } = useContext(GlobalContext)
+  const { profileData } = useContext(GlobalContext)
   let initialName = profileData.user && profileData.user.name
   let initialEmail = profileData.user && profileData.user.email
   let initialCpf = profileData.user && profileData.user.cpf
@@ -42,7 +42,7 @@ export default function EditUserPage() {
       <Form onSubmit={onSubmitForm}>
         <InputWrapper description="Nome">
           <Input
-            placeholder="Nome"
+            placeholder="Nome e sobrenome"
             name="name"
             label='nome'
             onChange={handleInputChange}
@@ -53,7 +53,7 @@ export default function EditUserPage() {
         </InputWrapper>
         <InputWrapper description="E-mail">
           <Input
-            placeholder="E-mail"
+            placeholder="email@email.com"
             name="email"
             type={"email"}
             onChange={handleInputChange}
@@ -63,7 +63,7 @@ export default function EditUserPage() {
         </InputWrapper>
         <InputWrapper description="CPF">
           <Input
-            placeholder="CPF"
+            placeholder="000.000.000-00"
             name="cpf"
             type="text"
             onChange={handleInputChange}
