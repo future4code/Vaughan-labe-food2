@@ -26,3 +26,7 @@ export const Loading = styled.div`
     justify-content: center;
     align-items: center;
 `
+
+export const OrderHistory = styled.div`
+   margin-bottom: 65px;
+`
