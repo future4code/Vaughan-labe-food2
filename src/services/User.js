@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/URL";
-import { goToCreateAddress, goToHome } from '../routes/Coordinator'
+import { goToCreateAddress, goToHome, goToProfile } from '../routes/Coordinator'
 
 export const login = (body, navigate) => {
     axios.post(`${BASE_URL}/login`, body)
@@ -32,8 +32,9 @@ export const updateProfile = (body, navigate) => {
     axios.put(`${BASE_URL}/profile`, body, headers)
         .then((res) => {
             alert("Perfil atualizado com sucesso!")
-            navigate(-1)
+            goToProfile(navigate)
+            navigate(0)
         }).catch((err) => {
             alert(err.response.data.message)
-        })
+        })        
 }
