@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { CircularProgress } from "@material-ui/core";
 
 export const NameAndEdit = styled.div`
     display: flex;
@@ -16,4 +17,12 @@ export const AddressBox = styled.div`
     height: 76px;
     background-color: #eee;
     padding: 16px;
+`
+
+export const Loading = styled.div`
+    width: 100%;
+    padding-top: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
