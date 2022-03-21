@@ -37,7 +37,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## <h2 id="nao-funciona">📋 Backlog</h2>
 * Responsividade para desktop 
-* Armazenar produtos do carrinho no Local Storage do usuário
 
 ## <h2 id="img-mobile">📱 Imagens Mobile</h2>
   
